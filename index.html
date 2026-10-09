@@ -4,71 +4,133 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <title>Zaid's Portfolio</title>
+    <meta
+        name="description"
+        content="Zaid Hsaine's portfolio: computer science, software development and cybersecurity."
+    >
+
+    <title>Home | Zaid Hsaine</title>
 
     <link rel="stylesheet" href="style.css">
+    <script src="script.js" defer></script>
 </head>
 
 <body>
-    <header>
-        <h1>Zaid Hsaine</h1>
-        <p>Computer Science Student</p>
+    <canvas id="matrix" aria-hidden="true"></canvas>
 
-        <nav>
-            <a href="#about">About</a>
-            <a href="#skills">Skills</a>
-            <a href="#projects">Projects</a>
-            <a href="#contact">Contact</a>
+    <header>
+        <div class="profile">
+            
+            
+            <img class="personal-photo" src="epitech pic.jpg" alt="Personel-pic">
+            
+
+            <div>
+                
+                <p class="profile-name">Zaid Hsaine</p>
+                <p class="profile-description">
+                    Computer Science Student
+                </p>
+            </div>
+        </div>
+
+        <nav aria-label="Main navigation">
+            <a href="index.html" aria-current="page">Home</a>
+            <a href="about.html">About</a>
+            <a href="skills.html">Skills</a>
+            <a href="projects.html">Projects</a>
+            <a href="contact.html">Contact</a>
         </nav>
+
+        
     </header>
 
     <main>
-        <section id="about">
-            <h2>About me</h2>
-
-            <p>
-                Hello! I'm Zaid, a computer science student.
-                I'm interested in programming, cybersecurity,
-                and web development.
+    <div class="home-layout">
+        <div class="home-text">
+            <p class="eyebrow">
+                ZAID HSAINE / COMPUTER SCIENCE STUDENT
             </p>
-        </section>
 
-        <section id="skills">
-            <h2>My skills</h2>
+            <h1>
+                Learning to build.<br>
+                <span>Building to learn.</span>
+            </h1>
 
-            <ul>
-                <li>Python</li>
-                <li>HTML and CSS — currently learning</li>
-                <li>Git and GitHub</li>
-                <li>Linux basics</li>
-            </ul>
-        </section>
+            <p class="introduction">
+                Computer science student at EMSI, currently on exchange
+                at EPITECH Paris. Exploring software development and
+                cybersecurity, one project at a time.
+            </p>
 
-        <section id="projects">
-            <h2>My projects</h2>
+            <div class="actions">
+                <a class="button" href="projects.html">
+                    Explore my projects ↗
+                </a>
 
-            <article>
-                <h3>My first portfolio</h3>
+                <a class="about-link" href="about.html">
+                    Get to know me →
+                </a>
+            </div>
+
+            <p class="funny-text">
+                // Still learning. Still debugging.
+            </p>
+        </div>
+
+        <aside class="terminal" aria-label="Profile in terminal style">
+            <div class="terminal-header">
+                <div class="terminal-dots" aria-hidden="true">
+                    <span class="dot red"></span>
+                    <span class="dot yellow"></span>
+                    <span class="dot green"></span>
+                </div>
+
+                <span class="zaid">zaid@portfolio: ~</span>
+            </div>
+
+            <div class="terminal-content">
+                <p>
+                    <span class="prompt">$</span> cat profile.py
+                </p>
+
+                <pre><code><span class="variable">name</span> = <span class="string">"Zaid Hsaine"</span>
+
+<span class="variable">school</span> = <span class="string">"EMSI"</span>
+<span class="variable">exchange</span> = <span class="string">"EPITECH Paris"</span>
+
+<span class="variable">interests</span> = [
+    <span class="string">"Cybersecurity"</span>,
+    <span class="string">"Software development"</span>
+]
+
+<span class="variable">status</span> = <span class="string">"Still learning..."</span></code></pre>
 
                 <p>
-                    A personal website built with HTML and CSS
-                    to introduce myself and showcase my work.
+                    <span class="prompt">$</span>
+                    <span class="cursor" aria-hidden="true">▌</span>
                 </p>
-            </article>
-        </section>
+            </div>
+        </aside>
+    </div>
 
-        <section id="contact">
-            <h2>Contact me</h2>
+    <section class="technologies" aria-labelledby="technologies-title">
+        <h2 id="technologies-title">
+            <span>$</span> ls technologies/
+        </h2>
 
-            <p>
-                Find my projects on
-                <a href="https://github.com/hsainezaid0">GitHub</a>.
-            </p>
-        </section>
-    </main>
-
-    <footer>
-        <p>© 2026 Zaid Hsaine</p>
-    </footer>
+        <ul class="technology-list">
+            <li>Python</li>
+            <li>C</li>
+            <li>SQL</li>
+            <li>HTML</li>
+            <li>CSS</li>
+            <li>Linux</li>
+            <li>Git</li>
+            <li>GitHub</li>
+            
+        </ul>
+    </section>
+</main>
 </body>
 </html>
