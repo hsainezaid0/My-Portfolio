@@ -1770,3 +1770,48 @@ main > .section-space { margin-top: 36px; }
     background: #63ead3;
     box-shadow: 0 0 10px #63ead340;
 }
+/* Use the About whoami appearance for every page command. */
+.skills-page .page-heading > .about-command,
+.projects-page .page-heading > .about-command,
+.contact-page .page-heading > .about-command {
+    position: relative;
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    padding: 12px 20px;
+    margin-bottom: 24px;
+    border: 1px solid #63ead330;
+    border-radius: 999px;
+    background: linear-gradient(120deg, #63ead310, #111a2d99);
+    color: #edf3ff;
+    font-size: 22px;
+    font-weight: 600;
+    line-height: 1.5;
+    letter-spacing: 1px;
+    box-shadow: inset 0 1px 0 #ffffff08, 0 6px 20px #0002;
+}
+.skills-page .page-heading > .about-command::before,
+.projects-page .page-heading > .about-command::before,
+.contact-page .page-heading > .about-command::before {
+    content: '';
+    display: block;
+    width: 7px;
+    height: 7px;
+    margin-right: 5px;
+    border-radius: 50%;
+    background: #63ead3;
+    box-shadow: 0 0 10px #63ead350;
+}
+.skills-page .page-heading > .about-command::after,
+.projects-page .page-heading > .about-command::after,
+.contact-page .page-heading > .about-command::after {
+    content: '';
+    position: absolute;
+    bottom: -9px;
+    left: 25%;
+    width: 50%;
+    height: 1px;
+    border-radius: 1px;
+    background: linear-gradient(90deg, transparent, #63ead390, transparent);
+    box-shadow: none;
+}
