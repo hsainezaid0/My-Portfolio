@@ -1737,3 +1737,36 @@ main > .section-space { margin-top: 36px; }
 .contact-page .content-grid > aside.panel > .tag-list li { background: #63ead307; border-color: #63ead328; color: #c9c2ef; }
 .contact-page .contact-photo { border-color: #35405d; }
 .contact-page .contact-photo { filter: none; }
+
+/* Matching command labels for Skills, Projects and Contact. */
+.skills-page .page-heading > .eyebrow,
+.projects-page .page-heading > .eyebrow,
+.contact-page .page-heading > .eyebrow {
+    display: inline-flex;
+    align-items: center;
+    gap: 14px;
+    max-width: 100%;
+    margin: 0 0 24px;
+    padding: 12px 20px;
+    border: 1px solid #63ead350;
+    border-radius: 12px;
+    background: linear-gradient(120deg, #63ead312, #63ead30a), #0b1222;
+    color: #63ead3;
+    font-family: "Courier New", monospace;
+    font-size: clamp(18px, 2vw, 23px);
+    font-weight: bold;
+    line-height: 1.5;
+    letter-spacing: .5px;
+    box-shadow: 0 6px 24px #0004, inset 0 1px #ffffff0a;
+}
+.skills-page .page-heading > .eyebrow::after,
+.projects-page .page-heading > .eyebrow::after,
+.contact-page .page-heading > .eyebrow::after {
+    content: '';
+    flex-shrink: 0;
+    width: 8px;
+    height: 20px;
+    border-radius: 1px;
+    background: #63ead3;
+    box-shadow: 0 0 10px #63ead340;
+}
