@@ -1815,3 +1815,43 @@ main > .section-space { margin-top: 36px; }
     background: linear-gradient(90deg, transparent, #63ead390, transparent);
     box-shadow: none;
 }
+/* Home portrait: two luminous arcs in counter rotation. */
+.photo-orbit .electron-orbit { display: none; }
+.photo-orbit { position: relative; }
+.photo-orbit::before, .photo-orbit::after {
+    content: '';
+    position: absolute;
+    border-radius: 50%;
+    pointer-events: none;
+    padding: 3px;
+    -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+    -webkit-mask-composite: xor;
+    mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+    mask-composite: exclude;
+}
+.photo-orbit::before {
+    inset: -12px;
+    background: conic-gradient(from 0deg, transparent 0deg 55deg, #63ead330 95deg, #63ead3 145deg, #edf3ff 165deg, transparent 175deg 235deg, #b0a0ff 285deg, transparent 310deg);
+    filter: drop-shadow(0 0 7px #63ead380);
+    animation: portrait-ring 6s linear infinite;
+}
+.photo-orbit::after {
+    inset: -23px;
+    padding: 2px;
+    background: conic-gradient(from 120deg, transparent 0deg 130deg, #b0a0ff40 170deg, #b0a0ff 220deg, transparent 240deg 360deg);
+    filter: drop-shadow(0 0 6px #b0a0ff70);
+    animation: portrait-ring 10s linear infinite reverse;
+}
+.photo-orbit .personal-photo {
+    position: relative;
+    border-color: #63ead380;
+    animation: portrait-glow 3.5s ease-in-out infinite;
+}
+@keyframes portrait-ring { to { transform: rotate(360deg); } }
+@keyframes portrait-glow {
+    0%, 100% { box-shadow: 0 0 18px #63ead31a, 0 12px 30px #0004; }
+    50% { box-shadow: 0 0 34px #63ead338, 0 0 54px #b0a0ff1a, 0 12px 30px #0004; }
+}
+@media(prefers-reduced-motion:reduce) {
+    .photo-orbit::before, .photo-orbit::after, .photo-orbit .personal-photo { animation: none; }
+}
