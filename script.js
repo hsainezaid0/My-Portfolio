@@ -49,3 +49,78 @@ if (canvas) {
  addEventListener('resize', resize);document.addEventListener('visibilitychange',sync);reducedMotion.addEventListener('change',sync);resize();sync();
 }
 
+
+// Reveal sections once as they enter the viewport.
+(() => {
+    const motion = matchMedia('(prefers-reduced-motion: reduce)');
+    const targets = [...document.querySelectorAll('.home-text, .home-layout > .terminal, .technologies, .section-heading, .work-preview > a, .panel, .timeline > li')];
+    if (!motion.matches && 'IntersectionObserver' in window) {
+        const observer = new IntersectionObserver(entries => {
+            entries.forEach(entry => {
+                if (!entry.isIntersecting) return;
+                entry.target.classList.add('is-revealed');
+                observer.unobserve(entry.target);
+            });
+        }, { threshold: 0, rootMargin: '0px 0px -24px 0px' });
+        targets.forEach(element => {
+            element.classList.add('scroll-reveal');
+            observer.observe(element);
+        });
+        motion.addEventListener('change', () => {
+            if (motion.matches) {
+                observer.disconnect();
+                targets.forEach(element => element.classList.add('is-revealed'));
+            }
+        });
+    }
+    // Wrap only the arrow glyph so link text stays still.
+    document.querySelectorAll('.button, .about-link, .text-link, .contact-link').forEach(link => {
+        const walker = document.createTreeWalker(link, NodeFilter.SHOW_TEXT);
+        const nodes = [];
+        while (walker.nextNode()) nodes.push(walker.currentNode);
+        nodes.forEach(node => {
+            if (!/[↗→]/.test(node.textContent)) return;
+            const fragment = document.createDocumentFragment();
+            node.textContent.split(/([↗→])/).forEach(part => {
+                if (/^[↗→]$/.test(part)) {
+                    const arrow = document.createElement('span');
+                    arrow.className = 'animated-arrow';
+                    arrow.textContent = part;
+                    fragment.append(arrow);
+                } else fragment.append(document.createTextNode(part));
+            });
+            node.replaceWith(fragment);
+        });
+    });
+})();
+// Visible stagger and a one-time terminal command typing effect.
+(() => {
+    if (matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+    document.querySelectorAll('.timeline, .skills-grid, .work-preview').forEach(group => {
+        [...group.children].forEach((item, index) => {
+            item.style.setProperty('--reveal-delay', `${Math.min(index % 4, 3) * 120}ms`);
+        });
+    });
+    const command = document.querySelector('.home-layout .terminal-content > p:first-child');
+    if (!command) return;
+    const prompt = command.querySelector('.prompt');
+    if (!prompt) return;
+    const text = ' cat profile.py';
+    const typed = document.createElement('span');
+    command.replaceChildren(prompt, typed);
+    let position = 0;
+    const type = () => {
+        if (!command.isConnected) return;
+        typed.textContent = text.slice(0, ++position);
+        if (position < text.length) setTimeout(type, 85);
+    };
+    if ('IntersectionObserver' in window) {
+        const observer = new IntersectionObserver(entries => {
+            if (entries.some(entry => entry.isIntersecting)) {
+                observer.disconnect();
+                setTimeout(type, 400);
+            }
+        });
+        observer.observe(command);
+    } else type();
+})();
