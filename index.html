@@ -11,16 +11,35 @@
 
     <title>Home | Zaid Hsaine</title>
 
+    <link rel="stylesheet" href="style.css?v=motion-2">
+    <script src="script.js?v=motion-2" defer></script>
     <link rel="icon" type="image/png" sizes="64x64" href="favicon.png">
-    <link rel="stylesheet" href="style.css">
-    <script src="script.js" defer></script>
+    <link rel="icon" type="image/gif" href="portfolio-icon.gif">
 </head>
 
-<body><a class="skip-link" href="#main">Skip to content</a>
+<body>
     <canvas id="matrix" aria-hidden="true"></canvas>
 
     <header>
-        <a class="profile" href="index.html" aria-label="Zaid Hsaine home"><div class="photo-orbit"><picture><source media="(prefers-reduced-motion: reduce)" srcset="portfolio-icon.svg"><img class="portfolio-logo" src="portfolio-icon.gif" alt="" width="48" height="48"></picture></div><div><p class="profile-name">Zaid Hsaine<span style="color:var(--accent)">.</span></p><p class="profile-description">Computer Science Student</p></div></a><nav aria-label="Main navigation">
+        <div class="profile">
+            
+            
+            <div class="photo-orbit">
+                <img class="personal-photo" src="epitech pic.jpg" alt="Zaid Hsaine">
+                <span class="electron-orbit" aria-hidden="true"></span>
+            </div>
+            
+
+            <div>
+                
+                <p class="profile-name">Zaid Hsaine</p>
+                <p class="profile-description">
+                    Computer Science Student
+                </p>
+            </div>
+        </div>
+
+        <nav aria-label="Main navigation">
             <a href="index.html" aria-current="page">Home</a>
             <a href="about.html">About</a>
             <a href="skills.html">Skills</a>
@@ -31,16 +50,21 @@
         
     </header>
 
-    <main id="main">
+    <main>
+    <div class="system-strip" aria-label="Profile overview">
+        <span>● SYSTEM ONLINE</span>
+        <span>SOFTWARE DEVELOPMENT / CYBERSECURITY</span>
+        <span>PARIS, FR</span>
+    </div>
     <div class="home-layout">
         <div class="home-text">
             <p class="eyebrow">
-                ZAID HSAINE / COMPUTER SCIENCE STUDENT
+                THE MIND BEHIND THE TERMINAL
             </p>
 
             <h1>
-                Learning to build.<br>
-                <span>Building to learn.</span>
+                Code. Explore.<br>
+                <span>Keep evolving.</span>
             </h1>
 
             <p class="introduction">
@@ -117,6 +141,43 @@
             
         </ul>
     </section>
-<footer class="page-footer"><span>© Zaid Hsaine · Built with curiosity.</span><a class="text-link" href="contact.html">Connect with me ↗</a></footer></main>
+<section class="featured-work" aria-labelledby="featured-title">
+<div class="section-heading">
+<div>
+<p class="panel-label">01 / SELECTED WORK</p>
+<h2 id="featured-title">From curiosity to code.</h2>
+</div>
+<a class="text-link" href="projects.html">View all projects ↗</a>
+</div>
+<div class="work-preview">
+<a href="projects.html#snort">
+<span class="work-index">SEC_01 / NETWORK SECURITY</span>
+<h3>Detect the unexpected. ↗</h3>
+<p>Network intrusion detection with Snort, custom rules and traffic analysis in a security lab.</p>
+<ul class="tag-list">
+<li>Snort</li>
+<li>Linux</li>
+<li>TCP/IP</li>
+</ul>
+<span class="text-link">Explore project →</span>
+</a>
+<a href="projects.html#portfolio">
+<span class="work-index">DEV_02 / WEB DEVELOPMENT</span>
+<h3>A digital home for my work. ↗</h3>
+<p>A personal portfolio built with semantic HTML, responsive layouts and a terminal-inspired identity.</p>
+<ul class="tag-list">
+<li>HTML</li>
+<li>CSS</li>
+<li>JavaScript</li>
+</ul>
+<span class="text-link">Explore project →</span>
+</a>
+</div>
+</section>
+<footer class="page-footer">
+<span>© Zaid Hsaine · Built with curiosity.</span>
+<a class="text-link" href="contact.html">Connect with me ↗</a>
+</footer>
+</main>
 </body>
 </html>

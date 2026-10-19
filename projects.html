@@ -6,26 +6,27 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="School and personal projects — Zaid Hsaine's computer science portfolio.">
     <title>Projects | Zaid Hsaine</title>
+    <link rel="stylesheet" href="style.css?v=motion-2">
+    <script src="script.js?v=motion-2" defer></script>
     <link rel="icon" type="image/png" sizes="64x64" href="favicon.png">
-    <link rel="stylesheet" href="style.css">
-    <script src="script.js" defer></script>
+    <link rel="icon" type="image/gif" href="portfolio-icon.gif">
 </head>
 
-<body><a class="skip-link" href="#main">Skip to content</a><canvas id="matrix" aria-hidden="true"></canvas>
-    <header><a class="profile" href="index.html" aria-label="Zaid Hsaine home"><div class="photo-orbit"><picture><source media="(prefers-reduced-motion: reduce)" srcset="portfolio-icon.svg"><img class="portfolio-logo" src="portfolio-icon.gif" alt="" width="48" height="48"></picture></div><div><p class="profile-name">Zaid Hsaine<span style="color:var(--accent)">.</span></p><p class="profile-description">Computer Science Student</p></div></a>
+<body><canvas id="matrix" aria-hidden="true"></canvas>
+    <header>
         <nav aria-label="Main navigation"><a href="index.html">Home</a><a href="about.html">About</a><a
                 href="skills.html">Skills</a><a href="projects.html" aria-current="page">Projects</a><a
                 href="contact.html">Contact</a></nav>
     </header>
     <main id="main" class="inner-page projects-page">
         <div class="page-heading">
-            <p class="eyebrow">$ ls projects/</p>
+            <p class="eyebrow about-command"><span class="command-prompt" aria-hidden="true">$</span> ls projects/</p>
             <h1>Learning through <span>projects.</span></h1>
             <p class="page-intro">Selected work, what I built and what I learned along the way.</p>
         </div>
         <section aria-labelledby="selected-work-title">
-            <h2 id="selected-work-title">Selected work</h2><div class="filter-bar" role="group" aria-label="Filter projects"><button type="button" data-filter="all" aria-pressed="true">All projects</button><button type="button" data-filter="web" aria-pressed="false">Web development</button><button type="button" data-filter="security" aria-pressed="false">Cybersecurity</button><button type="button" data-filter="apps" aria-pressed="false">Apps &amp; automation</button></div><p id="filter-status" class="muted" role="status">4 projects shown</p>
-            <article id="portfolio" data-category="web" class="panel project-card">
+            <h2 id="selected-work-title">Selected work</h2>
+            <article id="portfolio" class="panel project-card">
                 <div class="project-top">
                     <p class="panel-label">01 / WEB DEVELOPMENT</p>
                     <span class="status-badge">IN PROGRESS</span>
@@ -49,7 +50,7 @@
                         href="https://github.com/hsainezaid0/My-Portfolio">Explore the repository
                         ↗</a><a class="text-link" href="index.html">View the portfolio →</a></div>
             </article>
-            <article id="snort" data-category="security" class="panel project-card section-space">
+            <article id="snort" class="panel project-card section-space">
                 <div class="project-top">
                     <p class="panel-label">02 / CYBERSECURITY</p>
                     <span class="status-badge">NETWORK SECURITY</span>
@@ -69,9 +70,27 @@
                         hping3.</p>
                     <p><strong>Skills involved:</strong> Linux, TCP/IP, detection rules and alert analysis.</p>
             </article>
-            <article id="emsi-hackathon" data-category="apps" class="panel project-card section-space">
+            <article id="smart-parking" class="panel project-card section-space">
                 <div class="project-top">
-                    <p class="panel-label">03 / HACKATHON</p>
+                    <p class="panel-label">03 / EMBEDDED SYSTEMS</p>
+                    <span class="status-badge">ARDUINO &amp; AUTOMATION</span>
+                </div>
+                <h3>Smart Parking System &mdash; Arduino</h3>
+                <ul class="tag-list" aria-label="Project technologies and components">
+                    <li>Arduino Uno</li>
+                    <li>C/C++</li>
+                    <li>Ultrasonic Sensors</li>
+                    <li>Servo Motor</li>
+                    <li>LCD I2C</li>
+                </ul>
+                <p><strong>Context:</strong> an embedded systems project focused on developing an automated smart parking system using Arduino.</p>
+                <p><strong>Objective:</strong> detect vehicle presence, manage parking availability and control an automatic entrance barrier.</p>
+                <p><strong>Project focus:</strong> Arduino programming, ultrasonic sensor integration, automatic barrier control and real-time display of available parking spaces on an LCD screen.</p>
+                <p><strong>Skills involved:</strong> C/C++ programming, Arduino, sensor integration, electronic circuits and embedded systems automation.</p>
+            </article>
+            <article id="emsi-hackathon" class="panel project-card section-space">
+                <div class="project-top">
+                    <p class="panel-label">04 / HACKATHON</p>
                     <span class="status-badge">EMSI</span>
                 </div>
                 <h3>EMSI Hackathon &mdash; An App for Everyday Use</h3>
@@ -87,9 +106,9 @@
                 <p><strong>Project focus:</strong> identifying a useful idea, defining the main features and developing
                     an application around users' needs.</p>
             </article>
-            <article id="discord-bot" data-category="apps" class="panel project-card section-space">
+            <article id="discord-bot" class="panel project-card section-space">
                 <div class="project-top">
-                    <p class="panel-label">04 / BOT DEVELOPMENT</p>
+                    <p class="panel-label">05 / BOT DEVELOPMENT</p>
                     <span class="status-badge">DISCORD</span>
                 </div>
                 <h3>Discord Bot Development</h3>
