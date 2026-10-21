@@ -38,21 +38,75 @@ if (navigation) {
     window.matchMedia('(max-width: 600px)').addEventListener('change', () => setMenuOpen(false));
 }
 
+// Animated background particles.
 const canvas = document.getElementById('matrix');
 const reducedMotion = matchMedia('(prefers-reduced-motion: reduce)');
-if (canvas) {
- const ctx = canvas.getContext('2d'); let points = [], frame = 0, last = 0;
- function resize(){const dpr = Math.min(devicePixelRatio || 1, 2);canvas.width = innerWidth*dpr;canvas.height = innerHeight*dpr;canvas.style.width=innerWidth+'px';canvas.style.height=innerHeight+'px';ctx.setTransform(dpr,0,0,dpr,0,0);points=Array.from({length:Math.min(140,Math.max(40,Math.floor(innerWidth/10)))},()=>({x:Math.random()*innerWidth,y:Math.random()*innerHeight,vx:(Math.random()-.5)*.3,vy:(Math.random()-.5)*.3}));draw(0);}
- function draw(step){ctx.clearRect(0,0,innerWidth,innerHeight);points.forEach((p,i)=>{p.x=(p.x+p.vx*step+innerWidth)%innerWidth;p.y=(p.y+p.vy*step+innerHeight)%innerHeight;ctx.fillStyle='#63ead3';ctx.fillRect(p.x,p.y,3,3);for(let j=i+1;j<points.length;j++){const q=points[j],d=Math.hypot(p.x-q.x,p.y-q.y);if(d<150){ctx.strokeStyle=`rgba(99,234,211,${(1-d/150)*.55})`;ctx.beginPath();ctx.moveTo(p.x,p.y);ctx.lineTo(q.x,q.y);ctx.stroke();}}});}
- function animate(time){draw(last ? Math.min((time-last)/16.67,2) : 1);last=time;frame=requestAnimationFrame(animate);}
- function sync(){cancelAnimationFrame(frame);last=0;if(!document.hidden&&!reducedMotion.matches)frame=requestAnimationFrame(animate);else draw(0);}
- addEventListener('resize', resize);document.addEventListener('visibilitychange',sync);reducedMotion.addEventListener('change',sync);resize();sync();
-}
 
+if (canvas) {
+    const ctx = canvas.getContext('2d');
+    let points = [];
+    let frame = 0;
+    let last = 0;
+
+    function resize() {
+        const dpr = Math.min(devicePixelRatio || 1, 2);
+        canvas.width = innerWidth * dpr;
+        canvas.height = innerHeight * dpr;
+        canvas.style.width = innerWidth + 'px';
+        canvas.style.height = innerHeight + 'px';
+        ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
+        points = Array.from({ length: Math.min(140, Math.max(40, Math.floor(innerWidth / 10))) }, () => ({
+            x: Math.random() * innerWidth,
+            y: Math.random() * innerHeight,
+            vx: (Math.random() - .5) * .3,
+            vy: (Math.random() - .5) * .3
+        }));
+        draw(0);
+    }
+
+    function draw(step) {
+        ctx.clearRect(0, 0, innerWidth, innerHeight);
+        points.forEach((point, index) => {
+            point.x = (point.x + point.vx * step + innerWidth) % innerWidth;
+            point.y = (point.y + point.vy * step + innerHeight) % innerHeight;
+            ctx.fillStyle = '#63ead3';
+            ctx.fillRect(point.x, point.y, 3, 3);
+            for (let next = index + 1; next < points.length; next++) {
+                const other = points[next];
+                const distance = Math.hypot(point.x - other.x, point.y - other.y);
+                if (distance >= 150) continue;
+                ctx.strokeStyle = 'rgba(99,234,211,' + (1 - distance / 150) * .55 + ')';
+                ctx.beginPath();
+                ctx.moveTo(point.x, point.y);
+                ctx.lineTo(other.x, other.y);
+                ctx.stroke();
+            }
+        });
+    }
+
+    function animate(time) {
+        draw(last ? Math.min((time - last) / 16.67, 2) : 1);
+        last = time;
+        frame = requestAnimationFrame(animate);
+    }
+
+    function sync() {
+        cancelAnimationFrame(frame);
+        last = 0;
+        if (!document.hidden && !reducedMotion.matches) frame = requestAnimationFrame(animate);
+        else draw(0);
+    }
+
+    addEventListener('resize', resize);
+    document.addEventListener('visibilitychange', sync);
+    reducedMotion.addEventListener('change', sync);
+    resize();
+    sync();
+}
 
 // Reveal sections once as they enter the viewport.
 (() => {
-    const motion = matchMedia('(prefers-reduced-motion: reduce)');
+    const motion = reducedMotion;
     const targets = [...document.querySelectorAll('.home-text, .home-layout > .terminal, .technologies, .section-heading, .work-preview > a, .panel, .timeline > li')];
     if (!motion.matches && 'IntersectionObserver' in window) {
         const observer = new IntersectionObserver(entries => {
@@ -95,7 +149,7 @@ if (canvas) {
 })();
 // Visible stagger and a one-time terminal command typing effect.
 (() => {
-    if (matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+    if (reducedMotion.matches) return;
     document.querySelectorAll('.timeline, .skills-grid, .work-preview').forEach(group => {
         [...group.children].forEach((item, index) => {
             item.style.setProperty('--reveal-delay', `${Math.min(index % 4, 3) * 120}ms`);
