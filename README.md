@@ -19,6 +19,38 @@ My personal portfolio, presenting my background, skills and projects in software
 
 HTML, CSS and vanilla JavaScript, including the Canvas API for the background animation. No framework, package installation or build step is required.
 
+## Architecture
+
+The portfolio is a static website. Its five pages share styles, animations and visual assets; the contact form submits to FormSubmit.
+
+```mermaid
+flowchart TD
+    Visitor[Visitor / Browser] --> Pages
+
+    subgraph Pages[Portfolio pages]
+        Home[index.html - Home]
+        About[about.html - Background]
+        Skills[skills.html - Skills]
+        Projects[projects.html - Projects]
+        Contact[contact.html - Contact]
+    end
+
+    Pages --> CSS[style.css - Layout and styling]
+    Pages --> JS[script.js - Icons and animations]
+    Pages --> Favicon[favicon.svg - Browser icon]
+    Home --> Portrait[epitech pic.jpg - Profile photo]
+    Contact --> Portrait
+    Skills --> Icons[assets/icons - Technology icons]
+    JS --> Canvas[Canvas - Particle background]
+    Contact -->|Form submission| FormSubmit[FormSubmit - External service]
+    FormSubmit --> Inbox[Email inbox]
+
+    classDef page fill:#102929,stroke:#63ead3,color:#edf3ff
+    classDef asset fill:#1c2038,stroke:#b0a0ff,color:#edf3ff
+    class Home,About,Skills,Projects,Contact page
+    class CSS,JS,Favicon,Portrait,Icons,Canvas asset
+```
+
 ## Run locally
 
 Clone the repository and enter its directory:
