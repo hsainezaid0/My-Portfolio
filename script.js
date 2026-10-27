@@ -1,41 +1,28 @@
 const navigation = document.querySelector('header nav');
 
 if (navigation) {
-    const toggle = document.createElement('button');
-    toggle.type = 'button';
-    toggle.className = 'nav-toggle';
-    toggle.setAttribute('aria-label', 'Open navigation');
-    toggle.setAttribute('aria-expanded', 'false');
-    navigation.id = 'main-navigation';
-    toggle.setAttribute('aria-controls', navigation.id);
-    toggle.innerHTML = '<span class="nav-toggle-icon" aria-hidden="true"><span></span><span></span><span></span></span><span class="nav-toggle-label">Menu</span>';
-    navigation.before(toggle);
-    navigation.classList.add('collapsible-nav');
-
-    function setMenuOpen(open) {
-        navigation.classList.toggle('is-open', open);
-        toggle.setAttribute('aria-expanded', String(open));
-        toggle.setAttribute('aria-label', open ? 'Close navigation' : 'Open navigation');
-    }
-
-    toggle.addEventListener('click', () => {
-        setMenuOpen(toggle.getAttribute('aria-expanded') !== 'true');
+    const icons = {
+        'index.html': '<path d="m3 10 9-7 9 7M5 9v12h14V9M9 21v-8h6v8"/>',
+        'about.html': '<circle cx="12" cy="7" r="4"/><path d="M4 21v-2a8 8 0 0 1 16 0v2"/>',
+        'skills.html': '<path d="M12 5C8 2 4 3 2 4v15c3-1 7-1 10 2 3-3 7-3 10-2V4c-2-1-6-2-10 1Zm0 0v16"/>',
+        'projects.html': '<rect x="3" y="7" width="18" height="14" rx="2"/><path d="M8 7V3h8v4M3 12h18M10 12v3h4v-3"/>',
+        'contact.html': '<rect x="3" y="5" width="18" height="14" rx="2"/><path d="m3 6 9 7 9-7"/>'
+    };
+    navigation.querySelectorAll('a').forEach(link => {
+        const paths = icons[link.getAttribute('href')];
+        if (!paths) return;
+        const icon = document.createElementNS('http://www.w3.org/2000/svg', 'svg');
+        icon.setAttribute('class', 'nav-icon');
+        icon.setAttribute('viewBox', '0 0 24 24');
+        icon.setAttribute('fill', 'none');
+        icon.setAttribute('stroke', 'currentColor');
+        icon.setAttribute('stroke-width', '1.7');
+        icon.setAttribute('stroke-linecap', 'round');
+        icon.setAttribute('stroke-linejoin', 'round');
+        icon.setAttribute('aria-hidden', 'true');
+        icon.innerHTML = paths;
+        link.prepend(icon);
     });
-    navigation.addEventListener('click', event => {
-        if (event.target.closest('a')) setMenuOpen(false);
-    });
-    document.addEventListener('click', event => {
-        if (!navigation.contains(event.target) && !toggle.contains(event.target)) {
-            setMenuOpen(false);
-        }
-    });
-    document.addEventListener('keydown', event => {
-        if (event.key === 'Escape' && toggle.getAttribute('aria-expanded') === 'true') {
-            setMenuOpen(false);
-            toggle.focus();
-        }
-    });
-    window.matchMedia('(max-width: 600px)').addEventListener('change', () => setMenuOpen(false));
 }
 
 // Animated background particles.
@@ -106,9 +93,8 @@ if (canvas) {
 
 // Reveal sections once as they enter the viewport.
 (() => {
-    const motion = reducedMotion;
     const targets = [...document.querySelectorAll('.home-text, .home-layout > .terminal, .technologies, .section-heading, .work-preview > a, .panel, .timeline > li')];
-    if (!motion.matches && 'IntersectionObserver' in window) {
+    if (!reducedMotion.matches && 'IntersectionObserver' in window) {
         const observer = new IntersectionObserver(entries => {
             entries.forEach(entry => {
                 if (!entry.isIntersecting) return;
@@ -120,8 +106,8 @@ if (canvas) {
             element.classList.add('scroll-reveal');
             observer.observe(element);
         });
-        motion.addEventListener('change', () => {
-            if (motion.matches) {
+        reducedMotion.addEventListener('change', () => {
+            if (reducedMotion.matches) {
                 observer.disconnect();
                 targets.forEach(element => element.classList.add('is-revealed'));
             }
@@ -152,7 +138,7 @@ if (canvas) {
     if (reducedMotion.matches) return;
     document.querySelectorAll('.timeline, .skills-grid, .work-preview').forEach(group => {
         [...group.children].forEach((item, index) => {
-            item.style.setProperty('--reveal-delay', `${Math.min(index % 4, 3) * 120}ms`);
+            item.style.setProperty('--reveal-delay', `${index % 4 * 120}ms`);
         });
     });
     const command = document.querySelector('.home-layout .terminal-content > p:first-child');
