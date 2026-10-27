@@ -1,5 +1,7 @@
 # Zaid Hsaine — Portfolio
 
+[![Architecture diagram](https://gitdiagram.com/diagram-badge.svg)](https://gitdiagram.com/hsainezaid0/my-portfolio?utm_source=readme&utm_medium=badge)
+
 My personal portfolio, presenting my background, skills and projects in software development and cybersecurity. I am a computer science student at EMSI, on exchange at EPITECH Paris.
 
 [Website](https://zaidhsaine.com) · [GitHub](https://github.com/hsainezaid0) · [Online CV](https://hsainezaid0.github.io/CV---RESUME/)
