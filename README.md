@@ -25,30 +25,39 @@ The portfolio is a static website. Its five pages share styles, animations and v
 
 ```mermaid
 flowchart TD
-    Visitor[Visitor / Browser] --> Pages
+    subgraph Architecture["PORTFOLIO / ARCHITECTURE"]
+        direction TB
+        Visitor[Visitor / Browser] --> Pages
 
-    subgraph Pages[Portfolio pages]
-        Home[index.html - Home]
-        About[about.html - Background]
-        Skills[skills.html - Skills]
-        Projects[projects.html - Projects]
-        Contact[contact.html - Contact]
+        subgraph Pages[Portfolio pages]
+            Home[index.html - Home]
+            About[about.html - Background]
+            Skills[skills.html - Skills]
+            Projects[projects.html - Projects]
+            Contact[contact.html - Contact]
+        end
+
+        Pages --> CSS[style.css - Layout and styling]
+        Pages --> JS[script.js - Icons and animations]
+        Pages --> Favicon[favicon.svg - Browser icon]
+        Home --> Portrait[epitech pic.jpg - Profile photo]
+        Contact --> Portrait
+        Skills --> Icons[assets/icons - Technology icons]
+        JS --> Canvas[Canvas - Particle background]
+        Contact -->|Form submission| FormSubmit[FormSubmit - External service]
+        FormSubmit --> Inbox[Email inbox]
+
+        classDef page fill:#102929,stroke:#63ead3,color:#edf3ff
+        classDef asset fill:#1c2038,stroke:#b0a0ff,color:#edf3ff
+        class Home,About,Skills,Projects,Contact page
+        class CSS,JS,Favicon,Portrait,Icons,Canvas asset
     end
 
-    Pages --> CSS[style.css - Layout and styling]
-    Pages --> JS[script.js - Icons and animations]
-    Pages --> Favicon[favicon.svg - Browser icon]
-    Home --> Portrait[epitech pic.jpg - Profile photo]
-    Contact --> Portrait
-    Skills --> Icons[assets/icons - Technology icons]
-    JS --> Canvas[Canvas - Particle background]
-    Contact -->|Form submission| FormSubmit[FormSubmit - External service]
-    FormSubmit --> Inbox[Email inbox]
-
-    classDef page fill:#102929,stroke:#63ead3,color:#edf3ff
-    classDef asset fill:#1c2038,stroke:#b0a0ff,color:#edf3ff
-    class Home,About,Skills,Projects,Contact page
-    class CSS,JS,Favicon,Portrait,Icons,Canvas asset
+    style Architecture fill:#080d1b,stroke:#35405d,stroke-width:2px,color:#edf3ff
+    style Pages fill:#0b2028,stroke:#63ead3,stroke-width:2px,color:#edf3ff
+    classDef service fill:#152039,stroke:#63ead3,color:#edf3ff
+    class Visitor,FormSubmit,Inbox service
+    linkStyle default stroke:#8da5bf,stroke-width:2px,color:#b0a0ff
 ```
 
 ## Run locally
