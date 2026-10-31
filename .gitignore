@@ -10,3 +10,13 @@
 .DS_Store
 Thumbs.db
 Desktop.ini
+
+# Local chatbot secrets and tooling
+.env
+.env.*
+!.env.example
+.dev.vars
+.dev.vars.*
+!.dev.vars.example
+.wrangler/
+node_modules/
