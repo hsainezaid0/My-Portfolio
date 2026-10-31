@@ -1,7 +1,5 @@
 /* Portfolio styles: base, responsive layout and animations. */
 :root {
-    /* Space between cards on all pages. */
-    --card-gap: 24px;
     --accent-cyan: #63ead3;
     --accent-violet: #b0a0ff;
     --accent-mint: #63ead3;
@@ -2247,48 +2245,6 @@ footer.portfolio-footer a.footer-top:hover {
     }
 }
 
-/* Portfolio information pages. */
-.information-page main {
-    max-width: 1100px;
-    margin: 0 auto;
-    padding: 40px 28px;
-}
-
-.information-sections {
-    display: grid;
-    grid-template-columns: repeat(2,minmax(0,1fr));
-    gap: 22px;
-    margin-top: 36px;
-}
-
-.information-sections .panel {
-    padding: 28px;
-    min-width: 0;
-}
-
-.information-sections h2 {
-    font-size: 21px;
-    line-height: 1.4;
-    margin: 0 0 16px;
-}
-
-.information-sections p, .information-sections li {
-    font-size: 16px;
-    line-height: 1.8;
-    overflow-wrap: anywhere;
-}
-
-.information-sections a {
-    color: #63ead3;
-    text-decoration: underline;
-    text-underline-offset: 4px;
-}
-
-.information-page a:focus-visible, .information-page button:focus-visible {
-    outline: 2px solid #63ead3;
-    outline-offset: 5px;
-}
-
 .info-skip {
     position: absolute;
     left: 16px;
@@ -2301,20 +2257,6 @@ footer.portfolio-footer a.footer-top:hover {
 
 .info-skip:focus {
     top: 12px;
-}
-
-@media(max-width:700px) {
-    .information-sections {
-        grid-template-columns: 1fr;
-    }
-
-    .information-page main {
-        padding: 28px 20px;
-    }
-
-    .information-sections .panel {
-        padding: 22px;
-    }
 }
 
 /* Footer copyright. */
