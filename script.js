@@ -20,7 +20,7 @@ if (navigation) {
         icon.setAttribute('stroke-linecap', 'round');
         icon.setAttribute('stroke-linejoin', 'round');
         icon.setAttribute('aria-hidden', 'true');
-        icon.innerHTML = paths;
+        icon.innerHTML = paths; 
         link.prepend(icon);
     });
 }
@@ -30,27 +30,32 @@ const canvas = document.getElementById('matrix');
 const reducedMotion = matchMedia('(prefers-reduced-motion: reduce)');
 
 if (canvas) {
-    const ctx = canvas.getContext('2d');
-    let points = [];
-    let frame = 0;
-    let last = 0;
+    const ctx = canvas.getContext('2d'); //	Contexte contenant les outils de dessin 2D
+    let points = [];//Tableau des points à afficher
+    let frame = 0;// Identifiant de la prochaine animation demandée
+    let last = 0; // Horodatage de l’image précédente
 
-    function resize() {
-        const dpr = Math.min(devicePixelRatio || 1, 2);
-        canvas.width = innerWidth * dpr;
+    function resize() { //Adapter le canvas à la fenêtre avec resize()
+        const dpr = Math.min(devicePixelRatio || 1, 2); // Cette instruction vérifie la préférence d’accessibilité concernant la réduction des animations.
+        canvas.width = innerWidth * dpr; //la résolution interne du dessin
         canvas.height = innerHeight * dpr;
-        canvas.style.width = innerWidth + 'px';
+        canvas.style.width = innerWidth + 'px'; // la taille affichée en CSS
         canvas.style.height = innerHeight + 'px';
-        ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
+        ctx.setTransform(dpr, 0, 0, dpr, 0, 0); //adapte l’échelle de dessin
+
+
+        // Crée un tableau de points avec des positions et des vitesses aléatoires
+
         points = Array.from({ length: Math.min(140, Math.max(40, Math.floor(innerWidth / 10))) }, () => ({
             x: Math.random() * innerWidth,
             y: Math.random() * innerHeight,
             vx: (Math.random() - .5) * .3,
             vy: (Math.random() - .5) * .3
         }));
-        draw(0);
+        draw(0); // Dessine les points sans les déplacer.
     }
 
+    // Dessine les points et les lignes entre eux
     function draw(step) {
         ctx.clearRect(0, 0, innerWidth, innerHeight);
         points.forEach((point, index) => {
@@ -70,20 +75,21 @@ if (canvas) {
             }
         });
     }
-
+    
+    // Animation loop that draws the points and lines at a consistent frame rate
     function animate(time) {
         draw(last ? Math.min((time - last) / 16.67, 2) : 1);
         last = time;
         frame = requestAnimationFrame(animate);
     }
-
+    // Synchronizes the animation with the visibility of the page and user preferences
     function sync() {
         cancelAnimationFrame(frame);
         last = 0;
         if (!document.hidden && !reducedMotion.matches) frame = requestAnimationFrame(animate);
         else draw(0);
     }
-
+    // Set up event listeners for window resize, visibility change, and reduced motion preference change
     addEventListener('resize', resize);
     document.addEventListener('visibilitychange', sync);
     reducedMotion.addEventListener('change', sync);
@@ -95,7 +101,7 @@ if (canvas) {
 (() => {
     const targets = [...document.querySelectorAll('.home-text, .home-layout > .terminal, .technologies, .section-heading, .work-preview > a, .panel, .timeline > li')];
     if (!reducedMotion.matches && 'IntersectionObserver' in window) {
-        const observer = new IntersectionObserver(entries => {
+        const observer = new IntersectionObserver(entries => { // fach katl3 l page w kayban element kayweli is revealed 
             entries.forEach(entry => {
                 if (!entry.isIntersecting) return;
                 entry.target.classList.add('is-revealed');
