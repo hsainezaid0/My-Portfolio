@@ -9,7 +9,7 @@ if (navigation) {
         'contact.html': '<rect x="3" y="5" width="18" height="14" rx="2"/><path d="m3 6 9 7 9-7"/>'
     };
     navigation.querySelectorAll('a').forEach(link => {
-        const paths = icons[link.getAttribute('href')];
+        const paths = icons[link.getAttribute('href').replace(/^\//, '')];
         if (!paths) return;
         const icon = document.createElementNS('http://www.w3.org/2000/svg', 'svg');
         icon.setAttribute('class', 'nav-icon');

@@ -31,7 +31,7 @@
         entries.forEach(entry => { entry.node.nodeValue = isFrench ? entry.translated : entry.original; });
         attributes.forEach(entry => entry.element.setAttribute(entry.name, isFrench ? entry.translated : entry.original));
         document.title = isFrench ? (french[originalTitle] || originalTitle) : originalTitle;
-        button.querySelector("span").textContent = isFrench ? "EN" : "FR";
+        // The button shows both languages; CSS highlights the active one from <html lang>.
         button.lang = isFrench ? "en" : "fr";
         button.setAttribute("aria-label", isFrench ? "Switch website to English" : "Passer le site en français");
         button.title = isFrench ? "Switch to English" : "Passer en français";

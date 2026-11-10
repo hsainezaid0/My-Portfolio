@@ -12,6 +12,9 @@ My personal portfolio, presenting my background, skills and projects in software
 - Scroll reveals, a typing effect and support for reduced-motion preferences.
 - A contact form connected to FormSubmit.
 - A custom SVG favicon and technology icons.
+- English and French versions, with a light and a dark theme.
+- Self-hosted fonts: Inter for text and JetBrains Mono for terminal accents.
+- A custom 404 page, a message confirmation page, `robots.txt` and `sitemap.xml`.
 
 ## Built with
 
@@ -47,18 +50,27 @@ My-Portfolio/
 ├── contact.html        # Contact form and links
 ├── style.css           # Shared styles and responsive layouts
 ├── script.js           # Navigation icons and animations
+├── theme-init.js       # Applies the saved theme before the page renders
+├── theme.js            # Light and dark theme controls
+├── translations.js     # French text for every page
+├── language.js         # English / French switch
+├── 404.html            # Page shown for unknown addresses
+├── thanks.html         # Confirmation shown after the contact form
+├── robots.txt          # Instructions for search engines
+├── sitemap.xml         # List of pages for search engines
 ├── favicon.svg         # Browser tab icon
 ├── epitech pic.jpg     # Profile photo
 ├── assets/icons/       # SVG technology and topic icons
+├── assets/fonts/       # Inter and JetBrains Mono (SIL Open Font License)
 ├── CNAME               # Custom domain: zaidhsaine.com
 └── README.md
 ```
 
 ## Editing the portfolio
 
-Update the relevant HTML page to change text, projects or links. Shared styling lives in `style.css`, and interactive effects live in `script.js`. Keep navigation and shared asset references consistent across all five pages.
+Update the relevant HTML page to change text, projects or links. Shared styling lives in `style.css`, and interactive effects live in `script.js`. Keep navigation and shared asset references consistent across all pages. When you add or change English text, add the matching French text in `translations.js`. After changing a CSS or JavaScript file, update its `?v=` value in each page so browsers load the new version.
 
-Before publishing, check the pages at desktop and mobile widths, follow local links, and confirm that images load. If adapting the site, update the contact form recipient and the custom domain in `CNAME`.
+Before publishing, check the pages at desktop and mobile widths, follow local links, and confirm that images load. If adapting the site, update the contact form recipient, the custom domain in `CNAME`, and the `zaidhsaine.com` addresses in the page headers, `contact.html`, `robots.txt` and `sitemap.xml`.
 
 ## Contact
 

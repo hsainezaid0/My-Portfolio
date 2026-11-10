@@ -1,3 +1,42 @@
+/*
+POLICES : fichiers heberges avec le site (aucun appel a un service externe).
+Inter = texte courant et titres, tres lisible a l'ecran.
+JetBrains Mono = accents "terminal" (etiquettes, code, commandes).
+font-display: swap affiche le texte tout de suite avec une police systeme,
+puis la remplace quand le fichier est charge.
+*/
+@font-face {
+    font-family: "Inter";
+    src: url("assets/fonts/Inter-Regular.woff2") format("woff2");
+    font-weight: 400;
+    font-style: normal;
+    font-display: swap;
+}
+@font-face {
+    font-family: "Inter";
+    src: url("assets/fonts/Inter-SemiBold.woff2") format("woff2");
+    font-weight: 600;
+    font-style: normal;
+    font-display: swap;
+}
+@font-face {
+    font-family: "Inter";
+    src: url("assets/fonts/Inter-Bold.woff2") format("woff2");
+    font-weight: 700;
+    font-style: normal;
+    font-display: swap;
+}
+@font-face {
+    font-family: "JetBrains Mono";
+    src: url("assets/fonts/JetBrainsMono-Variable.woff2") format("woff2");
+    font-weight: 100 800;
+    font-style: normal;
+    font-display: swap;
+}
+:root {
+    --font-sans: "Inter", system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+    --font-mono: "JetBrains Mono", ui-monospace, "Cascadia Code", "SF Mono", Menlo, Consolas, "Liberation Mono", monospace;
+}
 :root {
     color-scheme: dark;
     --theme-gradient: rgba(21,32,57,.96);
@@ -81,7 +120,7 @@ body {
     color: var(--theme-color-15);
     font-weight: normal;
     line-height: 1.8;
-    font-family: "Courier New", monospace;
+    font-family: var(--font-sans);
 }
 
 #matrix {
@@ -233,7 +272,7 @@ h1 span {
     padding: 14px 18px;
     background: var(--theme-color-17);
     color: rgb(7, 32, 29);
-    font: bold 16px / 1.8 "Courier New", monospace;
+    font: 600 16px / 1.8 var(--font-sans);
     text-decoration: none;
     border: 0px;
     border-radius: 8px;
@@ -1760,7 +1799,7 @@ main > .section-space {
 .contact-page .content-grid {
     gap: 24px;
     align-items: stretch;
-    font-family: "Segoe UI", Arial, sans-serif;
+    font-family: var(--font-sans);
 }
 
 .contact-page .content-grid > .panel {
@@ -1774,7 +1813,7 @@ main > .section-space {
 }
 
 .contact-page .panel .panel-label {
-    font-family: "Courier New", monospace;
+    font-family: var(--font-mono);
     font-size: 16px;
     letter-spacing: 1.5px;
     margin: 0px 0px 20px;
@@ -1908,7 +1947,7 @@ main > .section-space {
     filter: none;
 }
 
-.skills-page .page-heading > .eyebrow, .projects-page .page-heading > .eyebrow, .contact-page .page-heading > .eyebrow {
+.skills-page .page-heading > .eyebrow, .projects-page .page-heading > .eyebrow, .contact-page .page-heading > .eyebrow, .status-page .page-heading > .eyebrow {
     display: inline-flex;
     align-items: center;
     gap: 14px;
@@ -1919,7 +1958,7 @@ main > .section-space {
     border-radius: 12px;
     background: linear-gradient(120deg, rgba(99, 234, 211, 0.07), rgba(99, 234, 211, 0.04)), var(--theme-color-18);
     color: var(--theme-color-17);
-    font-family: "Courier New", monospace;
+    font-family: var(--font-mono);
     font-size: clamp(18px, 2vw, 23px);
     font-weight: bold;
     line-height: 1.5;
@@ -1927,7 +1966,7 @@ main > .section-space {
     box-shadow: rgba(0, 0, 0, 0.267) 0px 6px 24px, rgba(255, 255, 255, 0.04) 0px 1px inset;
 }
 
-.skills-page .page-heading > .eyebrow::after, .projects-page .page-heading > .eyebrow::after, .contact-page .page-heading > .eyebrow::after {
+.skills-page .page-heading > .eyebrow::after, .projects-page .page-heading > .eyebrow::after, .contact-page .page-heading > .eyebrow::after, .status-page .page-heading > .eyebrow::after {
     content: "";
     flex-shrink: 0;
     width: 8px;
@@ -1937,7 +1976,7 @@ main > .section-space {
     box-shadow: rgba(99, 234, 211, 0.25) 0px 0px 10px;
 }
 
-.skills-page .page-heading > .about-command, .projects-page .page-heading > .about-command, .contact-page .page-heading > .about-command {
+.skills-page .page-heading > .about-command, .projects-page .page-heading > .about-command, .contact-page .page-heading > .about-command, .status-page .page-heading > .about-command {
     position: relative;
     display: inline-flex;
     align-items: center;
@@ -1955,7 +1994,7 @@ main > .section-space {
     box-shadow: rgba(255, 255, 255, 0.03) 0px 1px 0px inset, rgba(0, 0, 0, 0.133) 0px 6px 20px;
 }
 
-.skills-page .page-heading > .about-command::before, .projects-page .page-heading > .about-command::before, .contact-page .page-heading > .about-command::before {
+.skills-page .page-heading > .about-command::before, .projects-page .page-heading > .about-command::before, .contact-page .page-heading > .about-command::before, .status-page .page-heading > .about-command::before {
     content: "";
     display: block;
     width: 7px;
@@ -1966,7 +2005,7 @@ main > .section-space {
     box-shadow: rgba(99, 234, 211, 0.314) 0px 0px 10px;
 }
 
-.skills-page .page-heading > .about-command::after, .projects-page .page-heading > .about-command::after, .contact-page .page-heading > .about-command::after {
+.skills-page .page-heading > .about-command::after, .projects-page .page-heading > .about-command::after, .contact-page .page-heading > .about-command::after, .status-page .page-heading > .about-command::after {
     content: "";
     position: absolute;
     bottom: -9px;
@@ -2146,7 +2185,7 @@ footer.portfolio-footer.page-footer {
 .footer-kicker {
     margin: 0 0 14px;
     color: var(--theme-color-16);
-    font: 16px/1.5 Consolas, monospace;
+    font: 16px/1.5 var(--font-mono);
 }
 
 .footer-kicker span {
@@ -2223,7 +2262,7 @@ footer.portfolio-footer nav.footer-links a {
     border: 0;
     background: none;
     color: var(--theme-color-16);
-    font: 500 16px/1.5 "Segoe UI", Arial, sans-serif;
+    font: 500 16px/1.5 var(--font-sans);
     text-decoration: none;
 }
 
@@ -2239,7 +2278,7 @@ footer.portfolio-footer nav.footer-links a:hover {
 
 .footer-copyright {
     color: var(--theme-color-16);
-    font: 16px/1.5 Consolas, monospace;
+    font: 16px/1.5 var(--font-mono);
 }
 
 footer.portfolio-footer a.footer-top {
@@ -2381,7 +2420,7 @@ footer.portfolio-footer a.footer-top:hover {
 
 .message-field label {
     color: var(--theme-color-15);
-    font: 16px/1.5 "Courier New", monospace;
+    font: 600 16px/1.5 var(--font-sans);
 }
 
 .message-field input, .message-field textarea {
@@ -2393,7 +2432,7 @@ footer.portfolio-footer a.footer-top:hover {
     border-radius: 10px;
     background: var(--theme-color-14);
     color: var(--theme-color-15);
-    font: 16px/1.6 "Courier New", monospace;
+    font: 16px/1.6 var(--font-sans);
 }
 
 .message-field input {
@@ -2433,7 +2472,7 @@ footer.portfolio-footer a.footer-top:hover {
 button.message-send {
     justify-self: start;
     cursor: pointer;
-    font: 600 16px/1.6 "Courier New", monospace;
+    font: 600 16px/1.6 var(--font-sans);
 }
 
 @media (max-width:700px) {
@@ -2511,7 +2550,7 @@ header nav .nav-icon {
         border: 1px solid transparent;
         border-radius: 18px;
         color: var(--theme-color-16);
-        font-family: Arial, sans-serif;
+        font-family: var(--font-sans);
         font-size: 12px;
         font-weight: 600;
         white-space: nowrap;
@@ -2879,7 +2918,7 @@ header { flex-wrap: wrap; gap: 16px; }
     border-radius: 12px;
     color: #63ead3;
     background: #0b1222;
-    font: 600 14px/1.5 "Courier New", monospace;
+    font: 600 14px/1.5 var(--font-mono);
     cursor: pointer;
 }
 .theme-icon { font-size: 22px; line-height: 1; }
@@ -2933,7 +2972,7 @@ header { flex-wrap: wrap; gap: 16px; }
         align-items: center;
         min-height: 44px;
         color: #a6b4cc;
-        font: 600 12px/1.5 "Courier New", monospace;
+        font: 600 12px/1.5 var(--font-mono);
         text-decoration: none;
         white-space: nowrap;
     }
@@ -2976,7 +3015,7 @@ header { flex-wrap: wrap; gap: 16px; }
     border-radius: 12px;
     background: #0b1222;
     color: #63ead3;
-    font: 600 14px/1.5 "Courier New", monospace;
+    font: 600 14px/1.5 var(--font-mono);
     cursor: pointer;
 }
 .language-toggle:hover { border-color: currentColor; background: #182136; }
@@ -2986,7 +3025,7 @@ header { flex-wrap: wrap; gap: 16px; }
 @media (max-width: 600px) {
     .appearance-controls { gap: 6px; flex-shrink: 0; }
     .language-toggle { min-width: 44px; min-height: 44px; padding: 8px; border-radius: 10px; font-size: 12px; }
-    html[lang="fr"] header nav a { font-size: 10px; }
+    html[lang="fr"] header nav a { font-size: 11px; }
     .theme-toolbar { gap: 8px; }
 }
 @media (max-width: 360px) {
@@ -3022,7 +3061,7 @@ header { flex-wrap: wrap; gap: 16px; }
     border-radius: 8px;
     background: transparent;
     color: #edf3ff;
-    font: 600 13px/1.5 "Courier New", monospace;
+    font: 600 13px/1.5 var(--font-mono);
     text-align: left;
     cursor: pointer;
 }
@@ -3043,4 +3082,343 @@ header { flex-wrap: wrap; gap: 16px; }
     .theme-toolbar .theme-toggle { width: 44px; padding: 8px; }
 }
 
+/* 20. TYPOGRAPHIE : polices lisibles et finitions du texte */
+html {
+    -webkit-text-size-adjust: 100%;
+    text-size-adjust: 100%;
+}
 
+body {
+    line-height: 1.7;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    text-rendering: optimizeLegibility;
+}
+
+/* Les accents "terminal" gardent une police a chasse fixe. */
+.terminal, .system-strip, .eyebrow, .panel-label, .funny-text, .code-note, .panel .code-note,
+.technologies h2, .technology-list li, .tag-list li, .status-badge, .timeline-date,
+.work-preview .work-index, header nav a, .about-command {
+    font-family: var(--font-mono);
+}
+
+/* Les ligatures de code (=> != ...) genent la lecture des libelles. */
+.terminal, .eyebrow, .panel-label, .system-strip, .tag-list li, .technology-list li {
+    font-variant-ligatures: none;
+}
+
+/* Titres : Inter en gras, avec un interlettrage proportionnel a la taille. */
+h1, .home-text h1, .page-heading h1 {
+    font-weight: 700;
+    letter-spacing: -0.03em;
+}
+
+h2, h3 {
+    font-weight: 600;
+    letter-spacing: -0.01em;
+}
+
+.footer-invitation h2 {
+    font-weight: 700;
+    letter-spacing: -0.03em;
+}
+
+.profile-name {
+    font-weight: 700;
+    letter-spacing: -0.02em;
+    line-height: 1.25;
+}
+
+.technologies h2 {
+    letter-spacing: 0;
+}
+
+/* Texte courant : longueur de ligne et interligne confortables. */
+.introduction, .page-intro, .panel p, .panel dd, .work-preview p,
+.skills-grid .skill-card > p:not(.panel-label), .projects-page .project-card > p,
+.about-page .content-grid > .panel > p:not(.panel-label), .about-page .education-path p,
+.goal-list li, .small-card p, .timeline p {
+    line-height: 1.7;
+}
+
+.panel strong {
+    color: var(--theme-color-15);
+    font-weight: 600;
+}
+
+/* Petites etiquettes : la police mono parait plus grande, on la reduit un peu. */
+.technology-list li, .tag-list li, .work-preview .tag-list li, .skill-card .tag-list li,
+.projects-page .project-card .tag-list li, .contact-page .tag-list li,
+.contact-page .content-grid > aside.panel > .tag-list li {
+    font-size: 15px;
+    font-weight: 500;
+}
+
+.system-strip, .eyebrow, .panel-label, .work-preview .work-index, .section-heading .panel-label,
+.status-badge, .contact-page .panel .panel-label {
+    font-size: 15px;
+    font-weight: 500;
+}
+
+.page-heading .eyebrow, .about-page .page-heading .about-command {
+    font-size: clamp(17px, 1.6vw, 20px);
+    font-weight: 600;
+    letter-spacing: 0;
+}
+
+header nav a {
+    font-size: 17px;
+    font-weight: 500;
+}
+
+/* Le texte secondaire du theme clair etait trop pale sur fond blanc. */
+:root[data-theme="light"] {
+    --theme-color-16: #44546b;
+    --theme-color-23: #56677a;
+}
+
+@media (max-width: 700px) {
+    .about-page .panel-label {
+        font-size: 14px;
+    }
+
+    .about-page .terminal-header {
+        font-size: 14px;
+    }
+
+    .about-page .terminal-content {
+        font-size: 15px;
+    }
+}
+
+@media (max-width: 600px) {
+    header nav a {
+        font-family: var(--font-sans);
+        font-size: 12px;
+        font-weight: 600;
+    }
+
+    html[lang="fr"] header nav a {
+        font-size: 11px;
+    }
+
+    .mobile-brand {
+        font-size: 13px;
+    }
+}
+
+/* Lien d'evitement : visible uniquement au clavier. */
+.info-skip {
+    border-radius: 8px;
+    font-weight: 600;
+    text-decoration: none;
+}
+
+/* Champ piege anti-spam du formulaire : invisible pour les visiteurs. */
+.message-honey {
+    position: absolute;
+    left: -9999px;
+    width: 1px;
+    height: 1px;
+    overflow: hidden;
+}
+
+/* 21. PAGES DE STATUT : erreur 404 et confirmation d'envoi */
+main.status-page {
+    width: calc(100% - 48px);
+    max-width: 760px;
+    margin: 60px auto;
+    text-align: center;
+}
+
+.status-page .page-intro {
+    margin: 0 auto 28px;
+}
+
+.status-page .terminal {
+    margin: 0 auto 32px;
+    max-width: 560px;
+    text-align: left;
+}
+
+.status-page .actions {
+    justify-content: center;
+}
+
+.status-code {
+    color: var(--theme-color-22);
+}
+
+/* Le contenu principal recoit le focus via le lien d'evitement, sans contour. */
+main:focus {
+    outline: none;
+}
+
+.project-card h3 {
+    font-size: 22px;
+}
+
+/* Theme clair : fond plus lumineux pour garder le texte du lien actif lisible. */
+:root[data-theme="light"] nav a[aria-current="page"] {
+    background: linear-gradient(120deg, #4fdcaa, rgb(71, 229, 255));
+}
+
+.status-page footer.portfolio-footer.page-footer {
+    border-top: 0;
+}
+
+.contact-page .panel > .text-link {
+    margin-bottom: 22px;
+}
+
+/* 22. REGLAGES : theme et langue regroupes dans une pastille, a droite */
+.appearance-controls {
+    gap: 4px;
+    padding: 4px;
+    border: 1px solid var(--theme-color-20);
+    border-radius: 999px;
+    background: var(--theme-color-1);
+    box-shadow: 0 8px 24px rgba(0, 0, 0, .25), inset 0 1px 0 rgba(255, 255, 255, .06);
+    -webkit-backdrop-filter: blur(16px);
+    backdrop-filter: blur(16px);
+}
+
+/* Bouton du theme : un rond discret qui s'eclaire au survol. */
+.appearance-controls .theme-toggle,
+.theme-toolbar .appearance-controls .theme-toggle,
+:root[data-theme="light"] .appearance-controls .theme-toggle {
+    width: 40px;
+    min-width: 40px;
+    height: 40px;
+    min-height: 40px;
+    margin: 0;
+    padding: 0;
+    border: 0;
+    border-radius: 50%;
+    background: transparent;
+    color: var(--theme-color-16);
+    transition: background-color .2s, color .2s, transform .3s;
+}
+
+.appearance-controls .theme-icon {
+    font-size: 19px;
+}
+
+.appearance-controls .theme-toggle:hover,
+:root[data-theme="light"] .appearance-controls .theme-toggle:hover {
+    background: rgba(99, 234, 211, .12);
+    color: var(--theme-color-17);
+    transform: rotate(20deg);
+}
+
+/* Trait fin entre le theme et la langue. */
+.appearance-controls .theme-picker {
+    display: flex;
+    align-items: center;
+    gap: 4px;
+}
+
+.appearance-controls .theme-picker::after {
+    content: "";
+    width: 1px;
+    height: 20px;
+    background: var(--theme-color-20);
+}
+
+/* Langue : les deux choix sont visibles, la langue active est surlignee. */
+.appearance-controls .language-toggle,
+:root[data-theme="light"] .appearance-controls .language-toggle {
+    gap: 2px;
+    min-width: 0;
+    height: 40px;
+    min-height: 40px;
+    padding: 4px;
+    border: 0;
+    border-radius: 999px;
+    background: transparent;
+    color: var(--theme-color-16);
+    font: 600 13px/1 var(--font-mono);
+    letter-spacing: .5px;
+}
+
+.language-option {
+    display: grid;
+    place-items: center;
+    min-width: 36px;
+    height: 32px;
+    padding: 0 8px;
+    border-radius: 999px;
+    transition: background-color .2s, color .2s;
+}
+
+html[lang="en"] .language-option[data-language="en"],
+html[lang="fr"] .language-option[data-language="fr"] {
+    background: var(--theme-color-17);
+    color: #07201d;
+}
+
+:root[data-theme="light"][lang="en"] .language-option[data-language="en"],
+:root[data-theme="light"][lang="fr"] .language-option[data-language="fr"] {
+    color: #fff;
+}
+
+.language-toggle:hover .language-option {
+    color: var(--theme-color-15);
+}
+
+html[lang="en"] .language-toggle:hover .language-option[data-language="en"],
+html[lang="fr"] .language-toggle:hover .language-option[data-language="fr"] {
+    color: #07201d;
+}
+
+:root[data-theme="light"][lang="en"] .language-toggle:hover .language-option[data-language="en"],
+:root[data-theme="light"][lang="fr"] .language-toggle:hover .language-option[data-language="fr"] {
+    color: #fff;
+}
+
+.appearance-controls .theme-toggle:focus-visible,
+.appearance-controls .language-toggle:focus-visible {
+    outline: 2px solid var(--theme-color-17);
+    outline-offset: 2px;
+}
+
+/* Le menu du theme s'ouvre vers la gauche, puisque la pastille est a droite. */
+.theme-options {
+    left: auto;
+    right: 0;
+}
+
+/* Grand ecran : la pastille se place dans le coin droit de l'en-tete. */
+@media (min-width: 1100px) {
+    header .theme-toolbar {
+        position: absolute;
+        top: 50%;
+        right: 40px;
+        transform: translateY(-50%);
+    }
+}
+
+/* Tablette : la pastille passe au-dessus du menu, alignee a droite. */
+@media (min-width: 601px) and (max-width: 900px) {
+    header .theme-toolbar {
+        order: -1;
+        align-self: flex-end;
+    }
+}
+
+/* Telephone : le nom du site a gauche, les reglages a droite. */
+@media (max-width: 600px) {
+    .mobile-brand {
+        order: -1;
+    }
+
+    .appearance-controls {
+        box-shadow: none;
+    }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .appearance-controls .theme-toggle:hover {
+        transform: none;
+    }
+}

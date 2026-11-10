@@ -12,12 +12,18 @@ function closeThemeOptions(restoreFocus = false) {
 
 function updateTheme() {
     const light = document.documentElement.dataset.theme === "light";
+    const themeColor = document.querySelector('meta[name="theme-color"]');
+    if (themeColor) themeColor.content = light ? "#f0f5fa" : "#080d1b";
     const french = document.documentElement.lang === "fr";
     // On mobile the icon shows the current theme; desktop keeps its quick toggle.
     themeToggle.querySelector(".theme-icon").textContent = phoneLayout.matches
         ? (light ? "\u2600" : "\u263e") : (light ? "\u263e" : "\u2600");
-    themeToggle.querySelector(".theme-label").textContent = french
+    // The text label is optional: pages may show the icon alone.
+    const label = french
         ? (light ? "Mode sombre" : "Mode clair") : (light ? "Dark mode" : "Light mode");
+    const themeLabel = themeToggle.querySelector(".theme-label");
+    if (themeLabel) themeLabel.textContent = label;
+    themeToggle.title = phoneLayout.matches ? "" : label;
     themeToggle.setAttribute("aria-label", phoneLayout.matches
         ? (french ? "Choisir le mode d’affichage" : "Choose appearance")
         : (french ? `Passer en mode ${light ? "sombre" : "clair"}` : `Switch to ${light ? "dark" : "light"} mode`));

@@ -8,16 +8,31 @@
             content="Connect with Zaid Hsaine, computer science student."
         />
         <title>Contact | Zaid Hsaine</title>
-        <script src="theme-init.js?v=theme-1"></script>
-    <script src="theme.js?v=picker-1" defer></script>
-    <link rel="stylesheet" href="style.css?v=picker-1" />
-        <script src="script.js?v=rollback-1" defer></script>
-    <script src="translations.js?v=language-1" defer></script>
-    <script src="language.js?v=picker-1" defer></script>
-        <link rel="icon" type="image/svg+xml" href="favicon.svg?v=zh-3" />
+        <meta name="author" content="Zaid Hsaine" />
+    <meta name="theme-color" content="#080d1b" />
+    <link rel="canonical" href="https://zaidhsaine.com/contact.html" />
+    <meta property="og:type" content="website" />
+    <meta property="og:site_name" content="Zaid Hsaine" />
+    <meta property="og:title" content="Contact | Zaid Hsaine" />
+    <meta property="og:description" content="Connect with Zaid Hsaine, computer science student." />
+    <meta property="og:url" content="https://zaidhsaine.com/contact.html" />
+    <meta property="og:image" content="https://zaidhsaine.com/epitech%20pic.jpg" />
+    <meta property="og:locale" content="en_GB" />
+    <meta property="og:locale:alternate" content="fr_FR" />
+    <meta name="twitter:card" content="summary" />
+    <link rel="preload" href="assets/fonts/Inter-Regular.woff2" as="font" type="font/woff2" crossorigin />
+    <link rel="preload" href="assets/fonts/JetBrainsMono-Variable.woff2" as="font" type="font/woff2" crossorigin />
+    <script src="theme-init.js?v=controls-1"></script>
+    <script src="theme.js?v=controls-1" defer></script>
+    <link rel="stylesheet" href="style.css?v=controls-1" />
+    <script src="script.js?v=controls-1" defer></script>
+    <script src="translations.js?v=controls-1" defer></script>
+    <script src="language.js?v=controls-1" defer></script>
+    <link rel="icon" type="image/svg+xml" href="favicon.svg?v=zh-3" />
     </head>
 
     <body class="contact-page" id="top">
+        <a class="info-skip" href="#main">Skip to content</a>
         <canvas id="matrix" aria-hidden="true"></canvas>
         <header>
             <nav aria-label="Main navigation">
@@ -35,12 +50,12 @@
                     <button type="button" data-theme-option="dark" aria-pressed="true"><span aria-hidden="true">&#9790;</span><span class="theme-option-label">Dark mode</span></button>
                 </div>
             </div>
-            <button class="language-toggle" type="button" aria-label="Passer le site en français" lang="fr"><span aria-hidden="true">FR</span></button>
+            <button class="language-toggle" type="button" aria-label="Passer le site en français" lang="fr"><span class="language-option" data-language="en" aria-hidden="true">EN</span><span class="language-option" data-language="fr" aria-hidden="true">FR</span></button>
             </div>
             <a class="mobile-brand" href="index.html" aria-label="Portfolio home">~/portfolio<span aria-hidden="true">_</span></a>
         </div>
         </header>
-        <main id="main" class="contact-main">
+        <main id="main" class="contact-main" tabindex="-1">
             <div class="page-heading">
                 <p class="eyebrow about-command">
                     <span class="command-prompt" aria-hidden="true">$</span>
@@ -76,6 +91,19 @@
                             value="New message from Zaid Hsaine's portfolio"
                         />
                         <input type="hidden" name="_template" value="table" />
+                        <input
+                            type="hidden"
+                            name="_next"
+                            value="https://zaidhsaine.com/thanks.html"
+                        />
+                        <input
+                            class="message-honey"
+                            type="text"
+                            name="_honey"
+                            tabindex="-1"
+                            autocomplete="off"
+                            aria-hidden="true"
+                        />
                         <div class="message-fields">
                             <div class="message-field">
                                 <label for="sender-name">Your name</label

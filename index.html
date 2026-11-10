@@ -10,22 +10,54 @@
 
     <title>Home | Zaid Hsaine</title>
 
-    <script src="theme-init.js?v=theme-1"></script>
-    <script src="theme.js?v=picker-1" defer></script>
-    <link rel="stylesheet" href="style.css?v=picker-1" />
-    <script src="script.js?v=rollback-1" defer></script>
-    <script src="translations.js?v=language-1" defer></script>
-    <script src="language.js?v=picker-1" defer></script>
+    <meta name="author" content="Zaid Hsaine" />
+    <meta name="theme-color" content="#080d1b" />
+    <link rel="canonical" href="https://zaidhsaine.com/" />
+    <meta property="og:type" content="website" />
+    <meta property="og:site_name" content="Zaid Hsaine" />
+    <meta property="og:title" content="Home | Zaid Hsaine" />
+    <meta property="og:description" content="Zaid Hsaine's portfolio: computer science, software development and cybersecurity." />
+    <meta property="og:url" content="https://zaidhsaine.com/" />
+    <meta property="og:image" content="https://zaidhsaine.com/epitech%20pic.jpg" />
+    <meta property="og:locale" content="en_GB" />
+    <meta property="og:locale:alternate" content="fr_FR" />
+    <meta name="twitter:card" content="summary" />
+    <link rel="preload" href="assets/fonts/Inter-Regular.woff2" as="font" type="font/woff2" crossorigin />
+    <link rel="preload" href="assets/fonts/JetBrainsMono-Variable.woff2" as="font" type="font/woff2" crossorigin />
+    <script src="theme-init.js?v=controls-1"></script>
+    <script src="theme.js?v=controls-1" defer></script>
+    <link rel="stylesheet" href="style.css?v=controls-1" />
+    <script src="script.js?v=controls-1" defer></script>
+    <script src="translations.js?v=controls-1" defer></script>
+    <script src="language.js?v=controls-1" defer></script>
     <link rel="icon" type="image/svg+xml" href="favicon.svg?v=zh-3" />
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "Person",
+        "name": "Zaid Hsaine",
+        "url": "https://zaidhsaine.com/",
+        "image": "https://zaidhsaine.com/epitech%20pic.jpg",
+        "email": "mailto:hsainezaid@gmail.com",
+        "jobTitle": "Computer science student",
+        "affiliation": [
+            { "@type": "CollegeOrUniversity", "name": "EMSI" },
+            { "@type": "CollegeOrUniversity", "name": "EPITECH Paris" }
+        ],
+        "knowsAbout": ["Software development", "Cybersecurity"],
+        "sameAs": ["https://github.com/hsainezaid0"]
+    }
+    </script>
 </head>
 
 <body id="top">
+    <a class="info-skip" href="#main">Skip to content</a>
     <canvas id="matrix" aria-hidden="true"></canvas>
 
     <header>
         <div class="profile">
             <div class="photo-orbit">
-                <img class="personal-photo" src="epitech pic.jpg" alt="Zaid Hsaine" />
+                <img class="personal-photo" src="epitech pic.jpg" alt="Zaid Hsaine" width="240" height="240" />
             </div>
 
             <div>
@@ -50,13 +82,13 @@
                     <button type="button" data-theme-option="dark" aria-pressed="true"><span aria-hidden="true">&#9790;</span><span class="theme-option-label">Dark mode</span></button>
                 </div>
             </div>
-            <button class="language-toggle" type="button" aria-label="Passer le site en français" lang="fr"><span aria-hidden="true">FR</span></button>
+            <button class="language-toggle" type="button" aria-label="Passer le site en français" lang="fr"><span class="language-option" data-language="en" aria-hidden="true">EN</span><span class="language-option" data-language="fr" aria-hidden="true">FR</span></button>
             </div>
             <a class="mobile-brand" href="index.html" aria-label="Portfolio home">~/portfolio<span aria-hidden="true">_</span></a>
         </div>
     </header>
 
-    <main>
+    <main id="main" tabindex="-1">
         <div class="system-strip" aria-label="Profile overview">
             <span>● SYSTEM ONLINE</span>
             <span>SOFTWARE DEVELOPMENT / CYBERSECURITY</span>
