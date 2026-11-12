@@ -9,6 +9,11 @@ My personal portfolio, presenting my background, skills and projects in software
 - Five pages: Home, About, Skills, Projects and Contact.
 - Responsive layouts with a floating navigation dock on mobile.
 - A terminal-inspired interface with an animated particle background.
+- A 3D Earth on the home page: the continents, servers in 15 cities, traffic between them, and a shield that stops threats. Drag it to turn it. The land outline comes from Natural Earth (public domain).
+- A working terminal on the home page: type `help` to see the commands.
+- An education diagram on the About page, with a path that draws itself as you scroll.
+- A Projects page with illustrated cards, category filters and a preview window for each project.
+- Animations: content arrives blurred and settles in, cards lean towards the mouse with a light that follows it, sections tip up as they scroll into view, and the theme switch spreads in a circle. All of them stop for visitors who prefer reduced motion.
 - Scroll reveals, a typing effect and support for reduced-motion preferences.
 - A contact form connected to FormSubmit.
 - A custom SVG favicon and technology icons.
@@ -49,7 +54,14 @@ My-Portfolio/
 ├── projects.html       # Project showcase
 ├── contact.html        # Contact form and links
 ├── style.css           # Shared styles and responsive layouts
+├── features.css        # Styles for the globe, the terminal input and the education diagram
 ├── script.js           # Navigation icons and animations
+├── globe.js            # 3D Earth with servers and traffic (home page)
+├── terminal.js         # Terminal commands (home page)
+├── journey.js          # Education diagram (About page)
+├── projects.js         # Project filters and previews (Projects and home pages)
+├── contact.js          # Copy-email button and feedback mode (Contact page)
+├── tilt.js             # Cards that lean towards the mouse
 ├── theme-init.js       # Applies the saved theme before the page renders
 ├── theme.js            # Light and dark theme controls
 ├── translations.js     # French text for every page
@@ -61,6 +73,7 @@ My-Portfolio/
 ├── favicon.svg         # Browser tab icon
 ├── epitech pic.jpg     # Profile photo
 ├── assets/icons/       # SVG technology and topic icons
+├── assets/projects/    # SVG illustration for each project card
 ├── assets/fonts/       # Inter and JetBrains Mono (SIL Open Font License)
 ├── CNAME               # Custom domain: zaidhsaine.com
 └── README.md
@@ -68,7 +81,7 @@ My-Portfolio/
 
 ## Editing the portfolio
 
-Update the relevant HTML page to change text, projects or links. Shared styling lives in `style.css`, and interactive effects live in `script.js`. Keep navigation and shared asset references consistent across all pages. When you add or change English text, add the matching French text in `translations.js`. After changing a CSS or JavaScript file, update its `?v=` value in each page so browsers load the new version.
+Update the relevant HTML page to change text, projects or links. Shared styling lives in `style.css` and `features.css`, and interactive effects live in `script.js`, `globe.js`, `terminal.js`, `journey.js` and `projects.js`. To add a project, copy one `<li class="project-tile">` block in `projects.html`, give it a new `id`, a `data-category` and a picture in `assets/projects/`, then update the numbers in the filter buttons. The terminal's answers (projects, skills, studies) are written in `terminal.js`: update them when the pages change. Keep navigation and shared asset references consistent across all pages. When you add or change English text, add the matching French text in `translations.js`. After changing a CSS or JavaScript file, update its `?v=` value in each page so browsers load the new version.
 
 Before publishing, check the pages at desktop and mobile widths, follow local links, and confirm that images load. If adapting the site, update the contact form recipient, the custom domain in `CNAME`, and the `zaidhsaine.com` addresses in the page headers, `contact.html`, `robots.txt` and `sitemap.xml`.
 

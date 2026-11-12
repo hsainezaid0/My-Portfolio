@@ -2110,19 +2110,23 @@ main > .section-space {
     .scroll-reveal {
         opacity: 1;
         translate: none;
+        filter: none;
     }
 }
 
 @media (prefers-reduced-motion: no-preference) {
+    /* Le contenu arrive flou et un peu bas, puis se pose a sa place. */
     .scroll-reveal {
-        translate: 0px 28px;
+        translate: 0px 32px;
+        filter: blur(10px);
     /* Le JavaScript fixe --reveal-delay pour decaler les apparitions. */
-        transition: opacity .8s ease var(--reveal-delay, 0ms), translate .8s cubic-bezier(.2,.7,.2,1) var(--reveal-delay, 0ms);
+        transition: opacity .9s ease var(--reveal-delay, 0ms), translate .9s cubic-bezier(.16,1,.3,1) var(--reveal-delay, 0ms), filter .9s ease var(--reveal-delay, 0ms);
     }
 
     .scroll-reveal.is-revealed {
         opacity: 1;
         translate: 0px;
+        filter: none;
     }
 
     .animated-arrow {
@@ -2673,237 +2677,7 @@ header nav .nav-icon {
     }
 }
 
-/* 19. FORMATION : globe decoratif et parcours scolaire */
-.about-page .education-section {
-    position: relative;
-    isolation: isolate;
-    overflow: hidden;
-    padding: 0;
-    text-align: left;
-    background: radial-gradient(ellipse at 100% 0, rgba(99, 234, 211, 0.1), transparent 55%), var(--theme-color-18);
-    border: 1px solid var(--theme-color-20);
-}
-
-.education-globe {
-    position: absolute;
-    z-index: -1;
-    width: 420px;
-    height: 420px;
-    top: -65px;
-    right: -130px;
-    border: 1px solid rgba(99, 234, 211, 0.25);
-    border-radius: 50%;
-    background: radial-gradient(circle at 30% 25%, rgba(99, 234, 211, 0.08), transparent 65%);
-    box-shadow: inset -35px -20px 70px var(--theme-color-18), 0 0 70px rgba(99, 234, 211, 0.04);
-    transform: rotate(-24deg);
-    pointer-events: none;
-}
-
-.education-globe::before,
-.education-globe::after,
-.globe-meridian,
-.globe-equator {
-    content: '';
-    position: absolute;
-    top: 0;
-    right: 24%;
-    bottom: 0;
-    left: 24%;
-    border: 1px solid rgba(99, 234, 211, 0.16);
-    border-radius: 50%;
-}
-
-.education-globe::after {
-    top: 0;
-    right: 42%;
-    bottom: 0;
-    left: 42%;
-}
-.globe-meridian {
-    top: 12%;
-    right: 7%;
-    bottom: 12%;
-    left: 7%;
-}
-.globe-equator {
-    top: 35%;
-    right: 0;
-    bottom: 35%;
-    left: 0;
-}
-
-.globe-orbit {
-    position: absolute;
-    top: 28%;
-    right: -17%;
-    bottom: 28%;
-    left: -17%;
-    border: 1px solid rgba(99, 234, 211, 0.3);
-    border-radius: 50%;
-    transform: rotate(-25deg);
-}
-
-.globe-orbit::after {
-    content: '';
-    position: absolute;
-    top: 13%;
-    left: 13%;
-    width: 9px;
-    height: 9px;
-    border-radius: 50%;
-    background: var(--theme-color-17);
-    box-shadow: 0 0 15px rgba(99, 234, 211, 0.6);
-}
-
-.education-content {
-    padding: 40px;
-}
-.education-content > .panel-label {
-    text-align: center;
-}
-.education-content > h2 {
-    margin: 0;
-    font-size: clamp(26px, 3vw, 36px);
-    letter-spacing: -1px;
-}
-
-.about-page .education-path {
-    position: relative;
-    display: grid;
-    gap: 36px;
-    margin: 40px 0 0;
-    padding: 0;
-}
-
-.education-path::before {
-    content: none;
-}
-
-.about-page .education-path > li,
-.about-page .education-path > li:last-child {
-    position: relative;
-    margin: 0;
-    padding: 0 0 0 34px;
-    border: 0;
-    border-radius: 0;
-    background: none;
-}
-
-.about-page .education-path > li::before {
-    content: '';
-    box-sizing: border-box;
-    position: absolute;
-    z-index: 1;
-    top: 8px;
-    left: 4px;
-    width: 10px;
-    height: 10px;
-    border-radius: 50%;
-    background: var(--theme-color-17);
-    box-shadow: 0 0 8px rgba(99, 234, 211, 0.55), 0 0 18px rgba(99, 234, 211, 0.16);
-}
-
-.about-page .education-path > li:first-child {
-    padding-top: 0;
-}
-.about-page .education-path > li:last-child {
-    padding-bottom: 0;
-}
-
-.education-path .education-year {
-    position: relative;
-}
-
-.education-path .education-year::before {
-    content: none;
-}
-
-.about-page .education-path > li:not(:last-child)::after {
-    content: '';
-    position: absolute;
-    left: 8.5px;
-    top: 13px;
-    bottom: -49px;
-    width: 1px;
-    background: var(--theme-color-20);
-}
-
-.education-path .timeline-date {
-    display: inline-flex;
-    flex-wrap: wrap;
-    align-items: center;
-    gap: 8px 18px;
-    margin: 0 0 16px;
-    padding: 0;
-    border: 0;
-    border-radius: 0;
-    background: none;
-    color: var(--theme-color-17);
-    font-size: 18px;
-    line-height: 1.6;
-    letter-spacing: 0;
-}
-
-.education-path .education-place {
-    display: inline-block;
-    max-width: 100%;
-    padding: 0;
-    color: var(--theme-color-15);
-    font-size: 18px;
-    font-weight: normal;
-    line-height: 1.5;
-}
-.education-path .education-place::before {
-    content: none;
-}
-.education-path h3 {
-    margin: 0 0 12px;
-    font-size: 21px;
-    line-height: 1.6;
-}
-.about-page .education-path p {
-    max-width: 580px;
-    margin: 0;
-    color: var(--theme-color-25);
-    font-size: 18px;
-    line-height: 1.9;
-}
-
-@media (max-width: 700px) {
-    .about-page .education-section {
-        padding: 0;
-    }
-    .education-content {
-        padding: 30px 22px;
-    }
-    .education-globe {
-        width: 290px;
-        height: 290px;
-        top: -55px;
-        right: -150px;
-        opacity: .65;
-    }
-    .about-page .education-path {
-        margin-top: 32px;
-    }
-    .education-path .timeline-date {
-        display: flex;
-        flex-direction: column;
-        align-items: flex-start;
-        gap: 8px;
-    }
-    .about-page .education-path > li,
-    .about-page .education-path > li:first-child,
-    .about-page .education-path > li:last-child {
-        padding: 0 0 0 34px;
-    }
-    .education-path h3 {
-        font-size: 19px;
-    }
-    .about-page .education-path p {
-        font-size: 18px;
-    }
-}
+/* 19. FORMATION : le diagramme du parcours est dans features.css */
 
 /* Theme control shares the navigation's rounded, outlined terminal styling. */
 header { flex-wrap: wrap; gap: 16px; }
@@ -3136,7 +2910,7 @@ h2, h3 {
 /* Texte courant : longueur de ligne et interligne confortables. */
 .introduction, .page-intro, .panel p, .panel dd, .work-preview p,
 .skills-grid .skill-card > p:not(.panel-label), .projects-page .project-card > p,
-.about-page .content-grid > .panel > p:not(.panel-label), .about-page .education-path p,
+.about-page .content-grid > .panel > p:not(.panel-label),
 .goal-list li, .small-card p, .timeline p {
     line-height: 1.7;
 }
@@ -3271,95 +3045,61 @@ main:focus {
     margin-bottom: 22px;
 }
 
-/* 22. REGLAGES : theme et langue regroupes dans une pastille, a droite */
+/* 22. REGLAGES : choix de langue segmente (EN | FR) puis bouton carre du theme, a droite */
 .appearance-controls {
-    gap: 4px;
-    padding: 4px;
-    border: 1px solid var(--theme-color-20);
-    border-radius: 999px;
-    background: var(--theme-color-1);
-    box-shadow: 0 8px 24px rgba(0, 0, 0, .25), inset 0 1px 0 rgba(255, 255, 255, .06);
-    -webkit-backdrop-filter: blur(16px);
-    backdrop-filter: blur(16px);
-}
-
-/* Bouton du theme : un rond discret qui s'eclaire au survol. */
-.appearance-controls .theme-toggle,
-.theme-toolbar .appearance-controls .theme-toggle,
-:root[data-theme="light"] .appearance-controls .theme-toggle {
-    width: 40px;
-    min-width: 40px;
-    height: 40px;
-    min-height: 40px;
-    margin: 0;
+    gap: 8px;
     padding: 0;
     border: 0;
-    border-radius: 50%;
-    background: transparent;
-    color: var(--theme-color-16);
-    transition: background-color .2s, color .2s, transform .3s;
+    border-radius: 0;
+    background: none;
+    box-shadow: none;
 }
 
-.appearance-controls .theme-icon {
-    font-size: 19px;
-}
-
-.appearance-controls .theme-toggle:hover,
-:root[data-theme="light"] .appearance-controls .theme-toggle:hover {
-    background: rgba(99, 234, 211, .12);
-    color: var(--theme-color-17);
-    transform: rotate(20deg);
-}
-
-/* Trait fin entre le theme et la langue. */
-.appearance-controls .theme-picker {
-    display: flex;
-    align-items: center;
-    gap: 4px;
-}
-
-.appearance-controls .theme-picker::after {
-    content: "";
-    width: 1px;
-    height: 20px;
-    background: var(--theme-color-20);
-}
-
-/* Langue : les deux choix sont visibles, la langue active est surlignee. */
+/* Langue : les deux choix sont visibles, la langue active est remplie. */
 .appearance-controls .language-toggle,
 :root[data-theme="light"] .appearance-controls .language-toggle {
     gap: 2px;
     min-width: 0;
-    height: 40px;
-    min-height: 40px;
+    height: 44px;
+    min-height: 44px;
     padding: 4px;
-    border: 0;
-    border-radius: 999px;
-    background: transparent;
+    border: 1px solid var(--theme-color-20);
+    border-radius: 12px;
+    background: var(--theme-color-1);
     color: var(--theme-color-16);
     font: 600 13px/1 var(--font-mono);
     letter-spacing: .5px;
+    box-shadow: 0 8px 24px rgba(0, 0, 0, .22), inset 0 1px 0 rgba(255, 255, 255, .06);
+    -webkit-backdrop-filter: blur(16px);
+    backdrop-filter: blur(16px);
+    transition: border-color .2s;
+}
+
+.appearance-controls .language-toggle:hover {
+    border-color: var(--theme-color-17);
 }
 
 .language-option {
     display: grid;
     place-items: center;
-    min-width: 36px;
-    height: 32px;
+    min-width: 40px;
+    height: 34px;
     padding: 0 8px;
-    border-radius: 999px;
-    transition: background-color .2s, color .2s;
+    border-radius: 8px;
+    transition: background-color .2s, color .2s, box-shadow .2s;
 }
 
 html[lang="en"] .language-option[data-language="en"],
 html[lang="fr"] .language-option[data-language="fr"] {
     background: var(--theme-color-17);
     color: #07201d;
+    box-shadow: 0 2px 12px rgba(99, 234, 211, .28);
 }
 
 :root[data-theme="light"][lang="en"] .language-option[data-language="en"],
 :root[data-theme="light"][lang="fr"] .language-option[data-language="fr"] {
     color: #fff;
+    box-shadow: 0 2px 10px rgba(8, 124, 107, .25);
 }
 
 .language-toggle:hover .language-option {
@@ -3374,6 +3114,65 @@ html[lang="fr"] .language-toggle:hover .language-option[data-language="fr"] {
 :root[data-theme="light"][lang="en"] .language-toggle:hover .language-option[data-language="en"],
 :root[data-theme="light"][lang="fr"] .language-toggle:hover .language-option[data-language="fr"] {
     color: #fff;
+}
+
+/* Theme : un bouton carre aux coins arrondis, avec une icone soleil ou lune. */
+.appearance-controls .theme-picker {
+    display: flex;
+    align-items: center;
+}
+
+.appearance-controls .theme-toggle,
+.theme-toolbar .appearance-controls .theme-toggle,
+:root[data-theme="light"] .appearance-controls .theme-toggle {
+    width: 44px;
+    min-width: 44px;
+    height: 44px;
+    min-height: 44px;
+    margin: 0;
+    padding: 0;
+    border: 1px solid var(--theme-color-20);
+    border-radius: 12px;
+    background: var(--theme-color-1);
+    color: var(--theme-color-15);
+    box-shadow: 0 8px 24px rgba(0, 0, 0, .22), inset 0 1px 0 rgba(255, 255, 255, .06);
+    -webkit-backdrop-filter: blur(16px);
+    backdrop-filter: blur(16px);
+    transition: border-color .2s, color .2s, background-color .2s;
+}
+
+.appearance-controls .theme-toggle:hover,
+:root[data-theme="light"] .appearance-controls .theme-toggle:hover {
+    border-color: var(--theme-color-17);
+    background: var(--theme-color-1);
+    color: var(--theme-color-17);
+}
+
+/* L'icone est un masque SVG colore par la couleur du texte. */
+.appearance-controls .theme-icon {
+    display: block;
+    width: 20px;
+    height: 20px;
+    overflow: hidden;
+    font-size: 0;
+    background: currentColor;
+    -webkit-mask: var(--theme-icon-sun) center / contain no-repeat;
+    mask: var(--theme-icon-sun) center / contain no-repeat;
+    transition: transform .4s cubic-bezier(.2, .8, .2, 1);
+}
+
+.appearance-controls .theme-icon[data-icon="moon"] {
+    -webkit-mask-image: var(--theme-icon-moon);
+    mask-image: var(--theme-icon-moon);
+}
+
+.appearance-controls .theme-toggle:hover .theme-icon {
+    transform: rotate(45deg);
+}
+
+:root {
+    --theme-icon-sun: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='black' stroke-width='2' stroke-linecap='round'%3E%3Ccircle cx='12' cy='12' r='4'/%3E%3Cpath d='M12 2v2M12 20v2M4.9 4.9l1.4 1.4M17.7 17.7l1.4 1.4M2 12h2M20 12h2M4.9 19.1l1.4-1.4M17.7 6.3l1.4-1.4'/%3E%3C/svg%3E");
+    --theme-icon-moon: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='black' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M20 14.5A8 8 0 0 1 9.5 4a8 8 0 1 0 10.5 10.5z'/%3E%3C/svg%3E");
 }
 
 .appearance-controls .theme-toggle:focus-visible,
@@ -3418,7 +3217,30 @@ html[lang="fr"] .language-toggle:hover .language-option[data-language="fr"] {
 }
 
 @media (prefers-reduced-motion: reduce) {
-    .appearance-controls .theme-toggle:hover {
+    .appearance-controls .theme-toggle:hover .theme-icon {
         transform: none;
     }
+}
+
+/* 23. CHANGEMENT DE THEME : le nouveau mode s'etend en cercle depuis le bouton */
+.theme-switching::view-transition-old(root),
+.theme-switching::view-transition-new(root) {
+    animation: none;
+    mix-blend-mode: normal;
+}
+
+.theme-switching::view-transition-old(root) {
+    z-index: 1;
+}
+
+.theme-switching::view-transition-new(root) {
+    z-index: 2;
+}
+
+/* Navigateurs sans View Transitions : les couleurs changent en fondu. */
+.theme-fading,
+.theme-fading *,
+.theme-fading *::before,
+.theme-fading *::after {
+    transition: background-color .4s ease, color .4s ease, border-color .4s ease, box-shadow .4s ease !important;
 }

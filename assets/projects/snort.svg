@@ -1,0 +1,56 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 500" width="800" height="500">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#0d1a2e"/>
+      <stop offset="1" stop-color="#080d1b"/>
+    </linearGradient>
+    <radialGradient id="glow" cx="0.5" cy="0.5" r="0.5">
+      <stop offset="0" stop-color="#2aa893" stop-opacity="0.55"/>
+      <stop offset="1" stop-color="#2aa893" stop-opacity="0"/>
+    </radialGradient>
+    <pattern id="grid" width="40" height="40" patternUnits="userSpaceOnUse">
+      <path d="M40 0H0V40" fill="none" stroke="#63ead3" stroke-opacity="0.07"/>
+    </pattern>
+  </defs>
+  <rect width="800" height="500" fill="url(#bg)"/>
+  <rect width="800" height="500" fill="url(#grid)"/>
+
+  <!-- network links -->
+  <g stroke="#63ead3" stroke-opacity="0.35" stroke-width="2" fill="none">
+    <path d="M130 140 L290 210 L430 130 L590 200 L690 120"/>
+    <path d="M290 210 L250 360 L430 390 L560 330 L590 200"/>
+    <path d="M430 130 L430 390"/>
+    <path d="M130 140 L250 360"/>
+  </g>
+  <!-- attack path, highlighted -->
+  <path d="M690 120 L590 200 L430 260" fill="none" stroke="#dcefeb" stroke-width="3" stroke-dasharray="10 8"/>
+
+  <!-- hosts -->
+  <g fill="#0d1a2e" stroke="#63ead3" stroke-width="2.5">
+    <circle cx="130" cy="140" r="16"/>
+    <circle cx="290" cy="210" r="16"/>
+    <circle cx="430" cy="130" r="16"/>
+    <circle cx="250" cy="360" r="16"/>
+    <circle cx="430" cy="390" r="16"/>
+    <circle cx="560" cy="330" r="16"/>
+    <circle cx="590" cy="200" r="16"/>
+  </g>
+  <!-- attacker -->
+  <circle cx="690" cy="120" r="18" fill="#14594f" stroke="#dcefeb" stroke-width="3"/>
+  <path d="M682 112 l16 16 m0 -16 l-16 16" stroke="#edf3ff" stroke-width="3" stroke-linecap="round"/>
+
+  <!-- the sensor (Snort) with detection rings -->
+  <circle cx="430" cy="260" r="120" fill="url(#glow)"/>
+  <circle cx="430" cy="260" r="70" fill="none" stroke="#2aa893" stroke-opacity="0.6" stroke-width="2"/>
+  <circle cx="430" cy="260" r="100" fill="none" stroke="#2aa893" stroke-opacity="0.3" stroke-width="2"/>
+  <path d="M430 222 l34 12 v24 c0 22 -14 38 -34 46 c-20 -8 -34 -24 -34 -46 v-24 z" fill="#14594f" stroke="#dcefeb" stroke-width="3"/>
+  <path d="M415 262 l10 10 l20 -22" fill="none" stroke="#edf3ff" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/>
+
+  <!-- alert card -->
+  <g transform="translate(40 400)">
+    <rect width="420" height="70" rx="14" fill="#080d1b" fill-opacity="0.85" stroke="#2aa893" stroke-opacity="0.7"/>
+    <circle cx="30" cy="35" r="7" fill="#63ead3"/>
+    <text x="50" y="30" font-family="ui-monospace, Menlo, monospace" font-size="15" fill="#63ead3">ALERT [1:1000001]</text>
+    <text x="50" y="52" font-family="ui-monospace, Menlo, monospace" font-size="15" fill="#dcefeb">Possible TCP SYN scan → 10.0.0.23</text>
+  </g>
+</svg>

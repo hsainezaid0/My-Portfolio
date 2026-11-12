@@ -14,10 +14,10 @@
     <link rel="preload" href="assets/fonts/Inter-Regular.woff2" as="font" type="font/woff2" crossorigin />
     <link rel="preload" href="assets/fonts/JetBrainsMono-Variable.woff2" as="font" type="font/woff2" crossorigin />
     <script src="theme-init.js?v=controls-1"></script>
-    <script src="theme.js?v=controls-1" defer></script>
-    <link rel="stylesheet" href="style.css?v=controls-1" />
-    <script src="script.js?v=controls-1" defer></script>
-    <script src="translations.js?v=controls-1" defer></script>
+    <script src="theme.js?v=merge-3" defer></script>
+    <link rel="stylesheet" href="style.css?v=merge-4" />
+    <script src="script.js?v=merge-4" defer></script>
+    <script src="translations.js?v=merge-4" defer></script>
     <script src="language.js?v=controls-1" defer></script>
     <link rel="icon" type="image/svg+xml" href="favicon.svg?v=zh-3" />
     </head>
@@ -34,6 +34,7 @@
             </nav>
         <div class="theme-toolbar" role="toolbar" aria-label="Appearance">
             <div class="appearance-controls">
+            <button class="language-toggle" type="button" aria-label="Passer le site en français" lang="fr"><span class="language-option" data-language="en" aria-hidden="true">EN</span><span class="language-option" data-language="fr" aria-hidden="true">FR</span></button>
             <div class="theme-picker">
                 <button class="theme-toggle" type="button" aria-label="Switch to light mode" aria-pressed="false"><span class="theme-icon" aria-hidden="true">&#9728;</span></button>
                 <div class="theme-options" id="theme-options" role="group" aria-label="Choose appearance" hidden>
@@ -41,7 +42,6 @@
                     <button type="button" data-theme-option="dark" aria-pressed="true"><span aria-hidden="true">&#9790;</span><span class="theme-option-label">Dark mode</span></button>
                 </div>
             </div>
-            <button class="language-toggle" type="button" aria-label="Passer le site en français" lang="fr"><span class="language-option" data-language="en" aria-hidden="true">EN</span><span class="language-option" data-language="fr" aria-hidden="true">FR</span></button>
             </div>
             <a class="mobile-brand" href="index.html" aria-label="Portfolio home">~/portfolio<span aria-hidden="true">_</span></a>
         </div>

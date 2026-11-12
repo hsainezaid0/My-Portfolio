@@ -1,0 +1,55 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 500" width="800" height="500">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#173a47"/>
+      <stop offset="1" stop-color="#0d1a2e"/>
+    </linearGradient>
+  </defs>
+  <rect width="800" height="500" fill="url(#bg)"/>
+  <circle cx="700" cy="420" r="200" fill="#2aa893" fill-opacity="0.18"/>
+
+  <!-- chat window -->
+  <g transform="translate(80 50)">
+    <rect width="640" height="400" rx="20" fill="#080d1b" fill-opacity="0.75" stroke="#63ead3" stroke-opacity="0.3" stroke-width="2"/>
+    <!-- channel list -->
+    <rect width="150" height="400" rx="20" fill="#0d1a2e"/>
+    <text x="22" y="40" font-family="ui-sans-serif, system-ui, sans-serif" font-size="15" font-weight="700" fill="#edf3ff">My server</text>
+    <g font-family="ui-sans-serif, system-ui, sans-serif" font-size="14" fill="#63ead3">
+      <text x="22" y="80"># general</text>
+      <text x="22" y="110" fill="#edf3ff"># bot-commands</text>
+      <text x="22" y="140"># projects</text>
+      <text x="22" y="170"># help</text>
+    </g>
+    <rect x="12" y="94" width="126" height="24" rx="8" fill="#2aa893" fill-opacity="0.25"/>
+
+    <!-- user message -->
+    <circle cx="196" cy="60" r="18" fill="#63ead3"/>
+    <text x="226" y="54" font-family="ui-sans-serif, system-ui, sans-serif" font-size="14" font-weight="700" fill="#dcefeb">student</text>
+    <rect x="226" y="62" width="110" height="28" rx="8" fill="#dcefeb" fill-opacity="0.1"/>
+    <text x="238" y="81" font-family="ui-monospace, Menlo, monospace" font-size="15" fill="#63ead3">/help</text>
+
+    <!-- bot reply -->
+    <g transform="translate(178 120)">
+      <rect width="36" height="36" rx="10" fill="#14594f"/>
+      <rect x="8" y="12" width="20" height="14" rx="4" fill="#dcefeb"/>
+      <circle cx="14" cy="19" r="2.5" fill="#0d1a2e"/><circle cx="22" cy="19" r="2.5" fill="#0d1a2e"/>
+    </g>
+    <text x="226" y="134" font-family="ui-sans-serif, system-ui, sans-serif" font-size="14" font-weight="700" fill="#edf3ff">cyb-bot</text>
+    <rect x="290" y="122" width="34" height="16" rx="4" fill="#2aa893"/>
+    <text x="307" y="134" text-anchor="middle" font-family="ui-sans-serif, system-ui, sans-serif" font-size="10" font-weight="700" fill="#edf3ff">BOT</text>
+    <g transform="translate(226 146)">
+      <rect width="380" height="150" rx="12" fill="#0d1a2e" stroke="#2aa893" stroke-opacity="0.6"/>
+      <rect width="5" height="150" rx="2" fill="#2aa893"/>
+      <text x="22" y="32" font-family="ui-sans-serif, system-ui, sans-serif" font-size="15" font-weight="700" fill="#edf3ff">Commands</text>
+      <g font-family="ui-sans-serif, system-ui, sans-serif" font-size="14" fill="#dcefeb">
+        <text x="22" y="64">/help   list every command</text>
+        <text x="22" y="92">/ping   check that I&#39;m online</text>
+        <text x="22" y="120">/rules  show the server rules</text>
+      </g>
+    </g>
+
+    <!-- input -->
+    <rect x="176" y="340" width="440" height="40" rx="12" fill="#dcefeb" fill-opacity="0.08"/>
+    <text x="194" y="366" font-family="ui-sans-serif, system-ui, sans-serif" font-size="14" fill="#63ead3">Message #bot-commands</text>
+  </g>
+</svg>

@@ -1,0 +1,65 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 500" width="800" height="500">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#14594f"/>
+      <stop offset="0.55" stop-color="#2aa893"/>
+      <stop offset="1" stop-color="#63ead3"/>
+    </linearGradient>
+    <linearGradient id="screen" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#0d1a2e"/>
+      <stop offset="1" stop-color="#080d1b"/>
+    </linearGradient>
+    <linearGradient id="face1" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#63ead3"/>
+      <stop offset="1" stop-color="#2aa893"/>
+    </linearGradient>
+    <linearGradient id="face2" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#2aa893"/>
+      <stop offset="1" stop-color="#14594f"/>
+    </linearGradient>
+  </defs>
+  <rect width="800" height="500" fill="url(#bg)"/>
+  <circle cx="680" cy="60" r="160" fill="#dcefeb" fill-opacity="0.18"/>
+
+  <!-- browser window -->
+  <g transform="translate(90 60)">
+    <rect width="620" height="400" rx="18" fill="url(#screen)" stroke="#dcefeb" stroke-opacity="0.35" stroke-width="2"/>
+    <rect width="620" height="44" rx="18" fill="#dcefeb" fill-opacity="0.08"/>
+    <circle cx="26" cy="22" r="6" fill="#2aa893"/>
+    <circle cx="46" cy="22" r="6" fill="#63ead3" fill-opacity="0.5"/>
+    <circle cx="66" cy="22" r="6" fill="#63ead3" fill-opacity="0.5"/>
+    <rect x="200" y="12" width="220" height="20" rx="10" fill="#dcefeb" fill-opacity="0.12"/>
+    <text x="310" y="27" text-anchor="middle" font-family="ui-sans-serif, system-ui, sans-serif" font-size="12" fill="#dcefeb">zaidhsaine.com</text>
+
+    <!-- nav -->
+    <rect x="30" y="66" width="34" height="34" rx="9" fill="#14594f"/>
+    <text x="47" y="88" text-anchor="middle" font-family="ui-monospace, Menlo, monospace" font-size="13" fill="#edf3ff">zh</text>
+    <rect x="350" y="76" width="44" height="12" rx="6" fill="#dcefeb" fill-opacity="0.25"/>
+    <rect x="404" y="76" width="44" height="12" rx="6" fill="#dcefeb" fill-opacity="0.25"/>
+    <rect x="458" y="72" width="60" height="20" rx="10" fill="#dcefeb" fill-opacity="0.18"/>
+    <rect x="528" y="76" width="56" height="12" rx="6" fill="#dcefeb" fill-opacity="0.25"/>
+
+    <!-- headline -->
+    <rect x="30" y="140" width="250" height="22" rx="6" fill="#edf3ff"/>
+    <rect x="30" y="172" width="200" height="22" rx="6" fill="#edf3ff"/>
+    <rect x="30" y="212" width="230" height="10" rx="5" fill="#63ead3" fill-opacity="0.7"/>
+    <rect x="30" y="230" width="190" height="10" rx="5" fill="#63ead3" fill-opacity="0.7"/>
+    <rect x="30" y="268" width="120" height="38" rx="10" fill="#14594f"/>
+    <rect x="162" y="268" width="120" height="38" rx="10" fill="#dcefeb" fill-opacity="0.15" stroke="#dcefeb" stroke-opacity="0.3"/>
+
+    <!-- floating 3D shapes -->
+    <g transform="translate(450 225)">
+      <polygon points="0,-90 78,-45 78,45 0,90 -78,45 -78,-45" fill="url(#face2)"/>
+      <polygon points="0,-90 78,-45 0,0 -78,-45" fill="url(#face1)"/>
+      <polygon points="0,0 78,-45 78,45 0,90" fill="#14594f"/>
+      <polygon points="0,-90 78,-45 78,45 0,90 -78,45 -78,-45" fill="none" stroke="#dcefeb" stroke-opacity="0.5" stroke-width="2"/>
+    </g>
+    <circle cx="560" cy="120" r="22" fill="#63ead3"/>
+    <circle cx="350" cy="330" r="14" fill="#dcefeb" fill-opacity="0.8"/>
+    <ellipse cx="545" cy="335" rx="40" ry="14" fill="none" stroke="#63ead3" stroke-width="6"/>
+    <g fill="#dcefeb">
+      <circle cx="320" cy="140" r="2"/><circle cx="590" cy="190" r="2"/><circle cx="380" cy="110" r="2"/>
+      <circle cx="600" cy="300" r="2"/><circle cx="330" cy="260" r="2"/><circle cx="520" cy="370" r="2"/>
+    </g>
+  </g>
+</svg>

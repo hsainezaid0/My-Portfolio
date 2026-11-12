@@ -1,0 +1,54 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 500" width="800" height="500">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#2aa893"/>
+      <stop offset="0.6" stop-color="#63ead3"/>
+      <stop offset="1" stop-color="#dcefeb"/>
+    </linearGradient>
+    <linearGradient id="phone" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#0d1a2e"/>
+      <stop offset="1" stop-color="#080d1b"/>
+    </linearGradient>
+  </defs>
+  <rect width="800" height="500" fill="url(#bg)"/>
+  <circle cx="140" cy="420" r="170" fill="#14594f" fill-opacity="0.18"/>
+
+  <!-- phone -->
+  <g transform="translate(300 40) rotate(-6 100 210)">
+    <rect width="210" height="420" rx="34" fill="url(#phone)" stroke="#edf3ff" stroke-opacity="0.6" stroke-width="3"/>
+    <rect x="80" y="14" width="50" height="8" rx="4" fill="#edf3ff" fill-opacity="0.3"/>
+    <text x="24" y="66" font-family="ui-sans-serif, system-ui, sans-serif" font-size="20" font-weight="700" fill="#edf3ff">Today</text>
+    <!-- task cards -->
+    <rect x="20" y="86" width="170" height="64" rx="14" fill="#14594f"/>
+    <circle cx="44" cy="118" r="10" fill="none" stroke="#dcefeb" stroke-width="3"/>
+    <path d="M39 118 l4 4 l8 -9" fill="none" stroke="#dcefeb" stroke-width="3" stroke-linecap="round"/>
+    <rect x="64" y="106" width="100" height="9" rx="4" fill="#edf3ff"/>
+    <rect x="64" y="122" width="70" height="8" rx="4" fill="#63ead3"/>
+    <rect x="20" y="162" width="170" height="64" rx="14" fill="#dcefeb" fill-opacity="0.12"/>
+    <circle cx="44" cy="194" r="10" fill="none" stroke="#63ead3" stroke-width="3"/>
+    <rect x="64" y="182" width="96" height="9" rx="4" fill="#dcefeb"/>
+    <rect x="64" y="198" width="60" height="8" rx="4" fill="#63ead3" fill-opacity="0.7"/>
+    <rect x="20" y="238" width="170" height="64" rx="14" fill="#dcefeb" fill-opacity="0.12"/>
+    <circle cx="44" cy="270" r="10" fill="none" stroke="#63ead3" stroke-width="3"/>
+    <rect x="64" y="258" width="86" height="9" rx="4" fill="#dcefeb"/>
+    <rect x="64" y="274" width="74" height="8" rx="4" fill="#63ead3" fill-opacity="0.7"/>
+    <!-- add button -->
+    <circle cx="105" cy="360" r="26" fill="#2aa893"/>
+    <path d="M105 348 v24 M93 360 h24" stroke="#edf3ff" stroke-width="4" stroke-linecap="round"/>
+  </g>
+
+  <!-- idea bulb -->
+  <g transform="translate(590 120)">
+    <circle cx="50" cy="50" r="46" fill="#edf3ff" fill-opacity="0.9"/>
+    <path d="M50 22 c-15 0 -26 11 -26 25 c0 9 5 15 10 20 c3 3 4 6 4 10 h24 c0 -4 1 -7 4 -10 c5 -5 10 -11 10 -20 c0 -14 -11 -25 -26 -25 z" fill="#14594f"/>
+    <rect x="39" y="81" width="22" height="7" rx="3" fill="#0d1a2e"/>
+    <g stroke="#edf3ff" stroke-width="4" stroke-linecap="round">
+      <line x1="50" y1="-14" x2="50" y2="-30"/><line x1="100" y1="10" x2="112" y2="0"/><line x1="0" y1="10" x2="-12" y2="0"/>
+    </g>
+  </g>
+  <!-- sparkles -->
+  <g fill="#0d1a2e">
+    <path d="M200 120 l6 16 l16 6 l-16 6 l-6 16 l-6 -16 l-16 -6 l16 -6 z"/>
+    <path d="M640 330 l4 10 l10 4 l-10 4 l-4 10 l-4 -10 l-10 -4 l10 -4 z"/>
+  </g>
+</svg>

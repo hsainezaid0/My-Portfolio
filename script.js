@@ -99,7 +99,7 @@ if (canvas) {
 
 // Reveal sections once as they enter the viewport.
 (() => {
-    const targets = [...document.querySelectorAll('.home-text, .home-layout > .terminal, .technologies, .section-heading, .work-preview > a, .panel, .timeline > li')];
+    const targets = [...document.querySelectorAll('.home-text, .home-layout > .terminal, .network, .technologies, .skills-heading, .service-grid > li, .skill-group, .reach-form, .reach-side, .explore .section-heading, .explore-grid > li, .project-filters, .project-tile, .section-heading, .work-preview > a, .panel, .timeline > li')];
     if (!reducedMotion.matches && 'IntersectionObserver' in window) {
         const observer = new IntersectionObserver(entries => { // fach katl3 l page w kayban element kayweli is revealed 
             entries.forEach(entry => {
@@ -142,7 +142,7 @@ if (canvas) {
 // Visible stagger and a one-time terminal command typing effect.
 (() => {
     if (reducedMotion.matches) return;
-    document.querySelectorAll('.timeline, .skills-grid, .work-preview').forEach(group => {
+    document.querySelectorAll('.timeline, .skills-grid, .work-preview, .projects-grid, .explore-grid, .service-grid').forEach(group => {
         [...group.children].forEach((item, index) => {
             item.style.setProperty('--reveal-delay', `${index % 4 * 120}ms`);
         });

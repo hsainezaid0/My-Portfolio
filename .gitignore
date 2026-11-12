@@ -11,7 +11,7 @@
 Thumbs.db
 Desktop.ini
 
-# Local chatbot secrets and tooling
+# Local secrets and development tooling
 .env
 .env.*
 !.env.example

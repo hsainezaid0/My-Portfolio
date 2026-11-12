@@ -25,10 +25,15 @@
     <link rel="preload" href="assets/fonts/Inter-Regular.woff2" as="font" type="font/woff2" crossorigin />
     <link rel="preload" href="assets/fonts/JetBrainsMono-Variable.woff2" as="font" type="font/woff2" crossorigin />
     <script src="theme-init.js?v=controls-1"></script>
-    <script src="theme.js?v=controls-1" defer></script>
-    <link rel="stylesheet" href="style.css?v=controls-1" />
-    <script src="script.js?v=controls-1" defer></script>
-    <script src="translations.js?v=controls-1" defer></script>
+    <script src="theme.js?v=merge-3" defer></script>
+    <link rel="stylesheet" href="style.css?v=merge-4" />
+    <link rel="stylesheet" href="features.css?v=merge-7" />
+    <script src="script.js?v=merge-4" defer></script>
+    <script src="tilt.js?v=merge-2" defer></script>
+    <script src="globe.js?v=merge-2" defer></script>
+    <script src="terminal.js?v=merge-1" defer></script>
+    <script src="projects.js?v=merge-1" defer></script>
+    <script src="translations.js?v=merge-4" defer></script>
     <script src="language.js?v=controls-1" defer></script>
     <link rel="icon" type="image/svg+xml" href="favicon.svg?v=zh-3" />
     <script type="application/ld+json">
@@ -75,6 +80,7 @@
         </nav>
         <div class="theme-toolbar" role="toolbar" aria-label="Appearance">
             <div class="appearance-controls">
+            <button class="language-toggle" type="button" aria-label="Passer le site en français" lang="fr"><span class="language-option" data-language="en" aria-hidden="true">EN</span><span class="language-option" data-language="fr" aria-hidden="true">FR</span></button>
             <div class="theme-picker">
                 <button class="theme-toggle" type="button" aria-label="Switch to light mode" aria-pressed="false"><span class="theme-icon" aria-hidden="true">&#9728;</span></button>
                 <div class="theme-options" id="theme-options" role="group" aria-label="Choose appearance" hidden>
@@ -82,7 +88,6 @@
                     <button type="button" data-theme-option="dark" aria-pressed="true"><span aria-hidden="true">&#9790;</span><span class="theme-option-label">Dark mode</span></button>
                 </div>
             </div>
-            <button class="language-toggle" type="button" aria-label="Passer le site en français" lang="fr"><span class="language-option" data-language="en" aria-hidden="true">EN</span><span class="language-option" data-language="fr" aria-hidden="true">FR</span></button>
             </div>
             <a class="mobile-brand" href="index.html" aria-label="Portfolio home">~/portfolio<span aria-hidden="true">_</span></a>
         </div>
@@ -96,6 +101,11 @@
         </div>
         <div class="home-layout">
             <div class="home-text">
+                <a class="availability" href="contact.html">
+                    <span class="availability-dot" aria-hidden="true"></span>
+                    Open to a cybersecurity alternance from 2027
+                </a>
+
                 <p class="eyebrow">THE MIND BEHIND THE TERMINAL</p>
 
                 <h1>
@@ -124,7 +134,7 @@
                 </p>
             </div>
 
-            <aside class="terminal" aria-label="Profile in terminal style">
+            <aside class="terminal" id="terminal" aria-label="Profile in terminal style">
                 <div class="terminal-header">
                     <div class="terminal-dots" aria-hidden="true">
                         <span class="dot red"></span>
@@ -150,66 +160,290 @@
 
 <span class="variable">status</span> = <span class="string">"Still learning..."</span></code></pre>
 
-                    <p>
+                    <div class="terminal-log" role="log" aria-live="polite"></div>
+
+                    <p class="terminal-idle">
                         <span class="prompt">$</span>
                         <span class="cursor" aria-hidden="true">▌</span>
                     </p>
+
+                    <form class="terminal-form" hidden>
+                        <label class="prompt" for="terminal-input" aria-hidden="true">$</label>
+                        <input class="terminal-input" id="terminal-input" type="text" aria-label="Terminal command"
+                            placeholder="Type help" autocomplete="off" autocapitalize="off" autocorrect="off"
+                            spellcheck="false" enterkeyhint="send" maxlength="80" />
+                    </form>
+                </div>
+
+                <div class="terminal-footer" hidden>
+                    <span class="terminal-hint">Try a command:</span>
+                    <button type="button" data-command="help">help</button>
+                    <button type="button" data-command="whoami">whoami</button>
+                    <button type="button" data-command="projects">projects</button>
+                    <button type="button" data-command="education">education</button>
                 </div>
             </aside>
         </div>
 
-        <section class="technologies" aria-labelledby="technologies-title">
-            <h2 id="technologies-title"><span>$</span> ls technologies/</h2>
+        <section class="network" aria-labelledby="network-title">
+            <div class="network-text">
+                <p class="panel-label">01 / LIVE NETWORK</p>
+                <h2 id="network-title">Watching the <span>wire.</span></h2>
+                <p class="network-intro">
+                    A small model of what I study: servers, the traffic
+                    between them, and a shield that scans the globe and
+                    stops suspicious packets.
+                </p>
+                <dl class="network-stats">
+                    <div>
+                        <dt>SERVERS</dt>
+                        <dd>0015</dd>
+                    </div>
+                    <div>
+                        <dt>PACKETS DELIVERED</dt>
+                        <dd data-net="packets">0000</dd>
+                    </div>
+                    <div class="is-threat">
+                        <dt>THREATS BLOCKED</dt>
+                        <dd data-net="threats">0000</dd>
+                    </div>
+                </dl>
+                <ul class="network-legend">
+                    <li class="legend-server">Server</li>
+                    <li class="legend-traffic">Traffic</li>
+                    <li class="legend-shield">Shield</li>
+                    <li class="legend-threat">Threat</li>
+                </ul>
+            </div>
+            <div class="network-stage">
+                <canvas id="globe" role="img"
+                    aria-label="Animated globe showing servers, network traffic and a shield that stops threats"></canvas>
+                <p class="network-hint" aria-hidden="true">// Drag the globe to turn it.</p>
+            </div>
+        </section>
 
-            <ul class="technology-list">
-                <li>Python</li>
-                <li>C</li>
-                <li>SQL</li>
-                <li>HTML</li>
-                <li>CSS</li>
-                <li>Linux</li>
-                <li>Git</li>
-                <li>GitHub</li>
+        <section class="explore" aria-labelledby="explore-title">
+            <div class="section-heading">
+                <div>
+                    <p class="panel-label">02 / SITE MAP</p>
+                    <h2 id="explore-title">Explore the site.</h2>
+                </div>
+            </div>
+            <ul class="explore-grid">
+                <li>
+                    <a href="about.html">
+                        <span class="explore-icon" aria-hidden="true">
+                            <svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="7" r="4"/><path d="M4 21v-2a8 8 0 0 1 16 0v2"/></svg>
+                        </span>
+                        <h3>About <span class="explore-arrow" aria-hidden="true">↗</span></h3>
+                        <p>My story, my studies and the path that brought me to Paris.</p>
+                    </a>
+                </li>
+                <li>
+                    <a href="skills.html">
+                        <span class="explore-icon" aria-hidden="true">
+                            <svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 5C8 2 4 3 2 4v15c3-1 7-1 10 2 3-3 7-3 10-2V4c-2-1-6-2-10 1Zm0 0v16"/></svg>
+                        </span>
+                        <h3>Skills <span class="explore-arrow" aria-hidden="true">↗</span></h3>
+                        <p>The tools I use and the skills I'm building.</p>
+                    </a>
+                </li>
+                <li>
+                    <a href="projects.html">
+                        <span class="explore-icon" aria-hidden="true">
+                            <svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="7" width="18" height="14" rx="2"/><path d="M8 7V3h8v4M3 12h18M10 12v3h4v-3"/></svg>
+                        </span>
+                        <h3>Projects <span class="explore-arrow" aria-hidden="true">↗</span></h3>
+                        <p>Network security, web, embedded and apps, with the details.</p>
+                    </a>
+                </li>
+                <li>
+                    <a href="contact.html">
+                        <span class="explore-icon" aria-hidden="true">
+                            <svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="m3 6 9 7 9-7"/></svg>
+                        </span>
+                        <h3>Contact <span class="explore-arrow" aria-hidden="true">↗</span></h3>
+                        <p>Alternance offers, project ideas or questions: write to me.</p>
+                    </a>
+                </li>
             </ul>
         </section>
         <section class="featured-work" aria-labelledby="featured-title">
             <div class="section-heading">
                 <div>
-                    <p class="panel-label">01 / SELECTED WORK</p>
+                    <p class="panel-label">03 / SELECTED WORK</p>
                     <h2 id="featured-title">From curiosity to code.</h2>
                 </div>
                 <a class="text-link" href="projects.html">View all projects ↗</a>
             </div>
-            <div class="work-preview">
-                <a href="projects.html#snort">
-                    <span class="work-index">SEC_01 / NETWORK SECURITY</span>
-                    <h3>Detect the unexpected. ↗</h3>
-                    <p>
-                        Network intrusion detection with Snort, custom rules
-                        and traffic analysis in a security lab.
-                    </p>
-                    <ul class="tag-list">
-                        <li>Snort</li>
-                        <li>Linux</li>
-                        <li>TCP/IP</li>
-                    </ul>
-                    <span class="text-link">Explore project →</span>
-                </a>
-                <a href="projects.html#portfolio">
-                    <span class="work-index">DEV_02 / WEB DEVELOPMENT</span>
-                    <h3>A digital home for my work. ↗</h3>
-                    <p>
-                        A personal portfolio built with semantic HTML,
-                        responsive layouts and a terminal-inspired identity.
-                    </p>
-                    <ul class="tag-list">
-                        <li>HTML</li>
-                        <li>CSS</li>
-                        <li>JavaScript</li>
-                    </ul>
-                    <span class="text-link">Explore project →</span>
-                </a>
-            </div>
+            <ul class="projects-grid">
+                <li class="project-tile" id="snort" data-category="security">
+                    <article>
+                        <div class="tile-cover">
+                            <img src="assets/projects/snort.svg" alt="Illustration: a network map with one host flagged by a Snort alert" width="800" height="500" loading="lazy" />
+                            <span class="tile-badge">Security</span>
+                            <span class="tile-badge tile-status">Finished</span>
+                        </div>
+                        <div class="tile-body">
+                            <h3>Snort network intrusion detection</h3>
+                            <p>Network intrusion detection with Snort, custom rules and traffic analysis in a security lab.</p>
+                            <ul class="tile-tags" aria-label="Technologies used">
+                                <li>Snort</li>
+                                <li>Linux</li>
+                                <li>Nmap</li>
+                                <li>hping3</li>
+                            </ul>
+                            <button class="tile-open" type="button" aria-haspopup="dialog">Open preview <span aria-hidden="true">↗</span></button>
+                        </div>
+                    </article>
+                    <dialog class="project-preview" aria-labelledby="preview-snort">
+                        <div class="preview-top">
+                            <div class="tile-cover">
+                            <img src="assets/projects/snort.svg" alt="Illustration: a network map with one host flagged by a Snort alert" width="800" height="500" />
+                            <span class="tile-badge">Security</span>
+                            <span class="tile-badge tile-status">Finished</span>
+                        </div>
+                            <button class="preview-close" type="button" aria-label="Close preview">
+                                <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M6 6l12 12M18 6L6 18" /></svg>
+                            </button>
+                        </div>
+                        <div class="preview-body">
+                            <p class="preview-stack">Snort / Linux / Nmap / hping3 / TCP/IP</p>
+                            <h3 id="preview-snort">Snort network intrusion detection</h3>
+                            <p class="preview-summary">Network intrusion detection with Snort, custom rules and traffic analysis in a security lab.</p>
+                            <dl class="preview-details">
+                                    <div>
+                                        <dt>Context</dt>
+                                        <dd>A cybersecurity training project using Snort for network monitoring.</dd>
+                                    </div>
+                                    <div>
+                                        <dt>Objective</dt>
+                                        <dd>Detect suspicious traffic and generate security alerts.</dd>
+                                    </div>
+                                    <div>
+                                        <dt>What I worked on</dt>
+                                        <dd>Configuring Snort, writing custom rules and testing them in the lab with Nmap and hping3.</dd>
+                                    </div>
+                                    <div>
+                                        <dt>Skills involved</dt>
+                                        <dd>Linux, TCP/IP, detection rules and alert analysis.</dd>
+                                    </div>
+                            </dl>
+                        </div>
+                    </dialog>
+                </li>
+                <li class="project-tile" id="portfolio" data-category="web">
+                    <article>
+                        <div class="tile-cover">
+                            <img src="assets/projects/portfolio.svg" alt="Illustration: a browser window showing a portfolio" width="800" height="500" loading="lazy" />
+                            <span class="tile-badge">Web</span>
+                            <span class="tile-badge tile-status is-progress">In progress</span>
+                        </div>
+                        <div class="tile-body">
+                            <h3>This portfolio</h3>
+                            <p>A site in plain HTML, CSS and JavaScript with a 3D network globe, a working terminal, two languages and two themes.</p>
+                            <ul class="tile-tags" aria-label="Technologies used">
+                                <li>HTML</li>
+                                <li>CSS</li>
+                                <li>JavaScript</li>
+                                <li>Canvas</li>
+                            </ul>
+                            <button class="tile-open" type="button" aria-haspopup="dialog">Open preview <span aria-hidden="true">↗</span></button>
+                        </div>
+                    </article>
+                    <dialog class="project-preview" aria-labelledby="preview-portfolio">
+                        <div class="preview-top">
+                            <div class="tile-cover">
+                            <img src="assets/projects/portfolio.svg" alt="Illustration: a browser window showing a portfolio" width="800" height="500" />
+                            <span class="tile-badge">Web</span>
+                            <span class="tile-badge tile-status is-progress">In progress</span>
+                        </div>
+                            <button class="preview-close" type="button" aria-label="Close preview">
+                                <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M6 6l12 12M18 6L6 18" /></svg>
+                            </button>
+                        </div>
+                        <div class="preview-body">
+                            <p class="preview-stack">HTML / CSS / JavaScript / Canvas / Git</p>
+                            <h3 id="preview-portfolio">This portfolio</h3>
+                            <p class="preview-summary">A site in plain HTML, CSS and JavaScript with a 3D network globe, a working terminal, two languages and two themes.</p>
+                            <dl class="preview-details">
+                                    <div>
+                                        <dt>Context</dt>
+                                        <dd>A portfolio started while learning web development at EPITECH.</dd>
+                                    </div>
+                                    <div>
+                                        <dt>Objective</dt>
+                                        <dd>Introduce myself, share my skills and document my projects and progress.</dd>
+                                    </div>
+                                    <div>
+                                        <dt>Skills involved</dt>
+                                        <dd>Semantic HTML, CSS layout, responsive design, accessibility, Canvas animation and Git version control.</dd>
+                                    </div>
+                                    <div>
+                                        <dt>Reflection</dt>
+                                        <dd>Building every effect by hand, without a framework, showed me how the browser really works.</dd>
+                                    </div>
+                            </dl>
+                                <a class="button" href="https://github.com/hsainezaid0/My-Portfolio" target="_blank" rel="noopener noreferrer">View the code on GitHub ↗</a>
+                        </div>
+                    </dialog>
+                </li>
+                <li class="project-tile" id="smart-parking" data-category="embedded">
+                    <article>
+                        <div class="tile-cover">
+                            <img src="assets/projects/parking.svg" alt="Illustration: a smart parking lot seen from above, with sensors, a barrier and a free-space display" width="800" height="500" loading="lazy" />
+                            <span class="tile-badge">Embedded</span>
+                            <span class="tile-badge tile-status">Finished</span>
+                        </div>
+                        <div class="tile-body">
+                            <h3>Smart parking system</h3>
+                            <p>An Arduino system that detects cars, counts free spaces and opens the entrance barrier on its own.</p>
+                            <ul class="tile-tags" aria-label="Technologies used">
+                                <li>Arduino Uno</li>
+                                <li>C/C++</li>
+                                <li>Ultrasonic sensors</li>
+                                <li>Servo motor</li>
+                            </ul>
+                            <button class="tile-open" type="button" aria-haspopup="dialog">Open preview <span aria-hidden="true">↗</span></button>
+                        </div>
+                    </article>
+                    <dialog class="project-preview" aria-labelledby="preview-smart-parking">
+                        <div class="preview-top">
+                            <div class="tile-cover">
+                            <img src="assets/projects/parking.svg" alt="Illustration: a smart parking lot seen from above, with sensors, a barrier and a free-space display" width="800" height="500" />
+                            <span class="tile-badge">Embedded</span>
+                            <span class="tile-badge tile-status">Finished</span>
+                        </div>
+                            <button class="preview-close" type="button" aria-label="Close preview">
+                                <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M6 6l12 12M18 6L6 18" /></svg>
+                            </button>
+                        </div>
+                        <div class="preview-body">
+                            <p class="preview-stack">Arduino Uno / C/C++ / Ultrasonic sensors / Servo motor / LCD I2C</p>
+                            <h3 id="preview-smart-parking">Smart parking system</h3>
+                            <p class="preview-summary">An Arduino system that detects cars, counts free spaces and opens the entrance barrier on its own.</p>
+                            <dl class="preview-details">
+                                    <div>
+                                        <dt>Context</dt>
+                                        <dd>An embedded systems project to automate a small parking lot.</dd>
+                                    </div>
+                                    <div>
+                                        <dt>Objective</dt>
+                                        <dd>Detect vehicles, manage availability and control an automatic barrier.</dd>
+                                    </div>
+                                    <div>
+                                        <dt>What I worked on</dt>
+                                        <dd>Arduino programming, ultrasonic sensors, barrier control with a servo and live free-space count on an LCD.</dd>
+                                    </div>
+                                    <div>
+                                        <dt>Skills involved</dt>
+                                        <dd>C/C++, sensor integration, electronic circuits and embedded automation.</dd>
+                                    </div>
+                            </dl>
+                        </div>
+                    </dialog>
+                </li>
+            </ul>
         </section>
         <footer id="footer-preview" class="page-footer portfolio-footer">
             <div class="footer-invitation">
