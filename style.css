@@ -3244,3 +3244,433 @@ html[lang="fr"] .language-toggle:hover .language-option[data-language="fr"] {
 .theme-fading *::after {
     transition: background-color .4s ease, color .4s ease, border-color .4s ease, box-shadow .4s ease !important;
 }
+
+/* 24. NAVIGATION "CROCHETS" : sur ordinateur, le menu est une ligne de mots en
+   police mono ; la page active est placee entre deux crochets, comme dans du code.
+   Sur telephone, la barre fixe du bas (section 17) reste inchangee. */
+@media (min-width: 601px) {
+    header nav, header nav:hover {
+        gap: 4px 14px;
+        padding: 4px 0;
+        border: 0;
+        border-radius: 0;
+        background: none;
+        box-shadow: none;
+        -webkit-backdrop-filter: none;
+        backdrop-filter: none;
+    }
+
+    header nav a,
+    header nav a:hover,
+    header nav a[aria-current="page"],
+    :root[data-theme="light"] header nav a[aria-current="page"] {
+        padding: 8px 2px;
+        border-radius: 6px;
+        background: none;
+        box-shadow: none;
+        font: 500 17px/1.5 var(--font-mono);
+        text-transform: lowercase;
+        white-space: pre;
+    }
+
+    header nav a {
+        color: var(--theme-color-16);
+        transition: color .2s;
+    }
+
+    /* Les crochets existent toujours (les mots ne bougent pas) ; seule leur couleur change. */
+    header nav a::before,
+    header nav a::after {
+        color: transparent;
+        transition: color .2s;
+    }
+
+    header nav a::before { content: "[ "; }
+    header nav a::after { content: " ]"; }
+
+    header nav a:hover {
+        color: var(--theme-color-15);
+    }
+
+    header nav a:hover::before,
+    header nav a:hover::after {
+        color: var(--accent-soft, rgba(99, 234, 211, .45));
+    }
+
+    header nav a[aria-current="page"],
+    :root[data-theme="light"] header nav a[aria-current="page"] {
+        color: var(--theme-color-15);
+    }
+
+    header nav a[aria-current="page"]::before,
+    header nav a[aria-current="page"]::after {
+        color: var(--theme-color-17);
+    }
+
+    header nav a:focus-visible {
+        outline: 2px solid var(--theme-color-17);
+        outline-offset: 3px;
+    }
+}
+
+/* 25. RECHERCHE (Ctrl K) : bouton dans la barre d'outils et fenetre de commandes */
+.search-open {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    height: 44px;
+    padding: 0 10px 0 13px;
+    border: 1px solid var(--theme-color-20);
+    border-radius: 12px;
+    background: var(--theme-color-1);
+    color: var(--theme-color-16);
+    font: 500 14px/1 var(--font-mono);
+    cursor: pointer;
+    box-shadow: 0 8px 24px rgba(0, 0, 0, .22), inset 0 1px 0 rgba(255, 255, 255, .06);
+    -webkit-backdrop-filter: blur(16px);
+    backdrop-filter: blur(16px);
+    transition: border-color .2s, color .2s;
+}
+
+.search-open:hover {
+    border-color: var(--theme-color-17);
+    color: var(--theme-color-15);
+}
+
+.search-open:focus-visible {
+    outline: 2px solid var(--theme-color-17);
+    outline-offset: 2px;
+}
+
+.search-open svg {
+    flex-shrink: 0;
+}
+
+.search-open kbd,
+.palette kbd {
+    padding: 4px 7px;
+    border: 1px solid var(--theme-color-20);
+    border-radius: 6px;
+    background: var(--theme-color-12);
+    color: var(--theme-color-16);
+    font: 500 12px/1 var(--font-mono);
+    white-space: nowrap;
+}
+
+/* Tablette et telephone : seule l'icone reste. */
+@media (max-width: 900px) {
+    .search-open {
+        justify-content: center;
+        width: 44px;
+        padding: 0;
+    }
+
+    .search-open .search-label,
+    .search-open kbd {
+        display: none;
+    }
+}
+
+.palette {
+    width: min(620px, calc(100% - 28px));
+    max-height: min(560px, 80dvh);
+    margin-top: 12vh;
+    padding: 0;
+    overflow: hidden;
+    border: 1px solid rgba(99, 234, 211, .3);
+    border-radius: 16px;
+    background: var(--theme-color-18);
+    color: var(--theme-color-15);
+    box-shadow: 0 30px 80px rgba(0, 0, 0, .55), 0 0 40px rgba(99, 234, 211, .08);
+    text-align: left;
+}
+
+.palette[open] {
+    display: flex;
+    flex-direction: column;
+    animation: palette-in .22s cubic-bezier(.2, .7, .2, 1);
+}
+
+.palette::backdrop {
+    background: rgba(8, 13, 27, .7);
+    -webkit-backdrop-filter: blur(5px);
+    backdrop-filter: blur(5px);
+}
+
+@keyframes palette-in {
+    from { opacity: 0; transform: translateY(-10px) scale(.98); }
+    to { opacity: 1; transform: none; }
+}
+
+.palette-field {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    padding: 4px 16px;
+    border-bottom: 1px solid var(--theme-color-21);
+    color: var(--theme-color-17);
+}
+
+.palette-input {
+    flex: 1;
+    min-width: 0;
+    height: 52px;
+    padding: 0;
+    border: 0;
+    outline: 0;
+    background: transparent;
+    color: var(--theme-color-15);
+    font: 500 16px/1.5 var(--font-mono);
+    caret-color: var(--theme-color-17);
+}
+
+.palette-input::placeholder {
+    color: var(--theme-color-23);
+    opacity: .8;
+}
+
+.palette-list {
+    flex: 1;
+    margin: 0;
+    padding: 8px;
+    overflow-y: auto;
+    overscroll-behavior: contain;
+    list-style: none;
+    scrollbar-width: thin;
+    scrollbar-color: var(--theme-color-20) transparent;
+}
+
+.palette-group {
+    padding: 10px 10px 6px;
+    color: var(--theme-color-23);
+    font: 500 12px/1.5 var(--font-mono);
+    letter-spacing: 1px;
+    text-transform: uppercase;
+}
+
+.palette-item {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    padding: 10px;
+    border-radius: 10px;
+    color: var(--theme-color-15);
+    font-size: 16px;
+    line-height: 1.5;
+    cursor: pointer;
+}
+
+.palette-item .palette-mark {
+    width: 20px;
+    color: transparent;
+    font: 600 15px/1 var(--font-mono);
+    text-align: center;
+}
+
+.palette-item small {
+    margin-left: auto;
+    color: var(--theme-color-23);
+    font: 500 12.5px/1.5 var(--font-mono);
+    white-space: nowrap;
+}
+
+.palette-item[aria-selected="true"] {
+    background: var(--theme-color-4);
+    box-shadow: inset 0 0 0 1px rgba(99, 234, 211, .3);
+}
+
+.palette-item[aria-selected="true"] .palette-mark {
+    color: var(--theme-color-17);
+}
+
+.palette-empty {
+    padding: 28px 16px;
+    color: var(--theme-color-16);
+    font: 15px/1.6 var(--font-mono);
+    text-align: center;
+}
+
+.palette-help {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 6px 18px;
+    margin: 0;
+    padding: 10px 16px;
+    border-top: 1px solid var(--theme-color-21);
+    color: var(--theme-color-23);
+    font: 12.5px/1.6 var(--font-mono);
+}
+
+.palette-help span {
+    display: inline-flex;
+    align-items: center;
+    gap: 7px;
+}
+
+html:has(.palette[open]) {
+    overflow: hidden;
+}
+
+@media (max-width: 600px) {
+    .palette {
+        margin-top: 8vh;
+    }
+
+    /* Sans clavier, les rappels de touches ne servent pas. */
+    .palette-help {
+        display: none;
+    }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .palette[open] {
+        animation: none;
+    }
+}
+
+/* 26. BARRE DU TELEPHONE : quatre pages et, au centre, un bouton de recherche
+   en losange. La page Competences reste accessible par la recherche, par les
+   cartes "Explorer le site" de l'accueil et par le terminal. */
+.nav-search {
+    display: none;
+}
+
+@media (max-width: 600px) {
+    header nav a[href$="skills.html"] {
+        display: none;
+    }
+
+    /* La recherche est dans la barre du bas : le bouton du haut devient inutile. */
+    .search-open {
+        display: none;
+    }
+
+    header nav a {
+        text-transform: lowercase;
+    }
+
+    /* Page active : icone et nom en couleur d'accent, sans fond rempli. */
+    header nav a[aria-current="page"],
+    :root[data-theme="light"] header nav a[aria-current="page"] {
+        border-color: transparent;
+        background: none;
+        box-shadow: none;
+        color: var(--theme-color-17);
+    }
+
+    .nav-search {
+        position: relative;
+        display: grid;
+        place-items: center;
+        min-width: 0;
+        padding: 0;
+        border: 0;
+        background: none;
+        cursor: pointer;
+        -webkit-tap-highlight-color: transparent;
+        touch-action: manipulation;
+    }
+
+    /* Le losange depasse au-dessus de la barre ; l'anneau a la couleur du fond de la page. */
+    .nav-search span {
+        display: grid;
+        place-items: center;
+        width: 52px;
+        height: 52px;
+        margin-top: -34px;
+        border-radius: 17px;
+        background: linear-gradient(135deg, var(--theme-color-17), rgb(71, 229, 255));
+        color: #07201d;
+        box-shadow: 0 0 0 5px var(--theme-color-18), 0 10px 24px rgba(71, 229, 255, .35);
+        rotate: 45deg;
+        transition: scale .2s cubic-bezier(.2, .8, .2, 1), box-shadow .2s;
+    }
+
+    :root[data-theme="light"] .nav-search span {
+        background: linear-gradient(135deg, #4fdcaa, rgb(71, 229, 255));
+        box-shadow: 0 0 0 5px var(--theme-color-18), 0 10px 22px rgba(8, 124, 107, .28);
+    }
+
+    .nav-search svg {
+        rotate: -45deg;
+    }
+
+    .nav-search:active span {
+        scale: .92;
+    }
+
+    .nav-search:focus-visible {
+        outline: none;
+    }
+
+    .nav-search:focus-visible span {
+        outline: 2px solid var(--theme-color-15);
+        outline-offset: 3px;
+    }
+}
+
+@media (max-width: 600px) and (prefers-reduced-motion: reduce) {
+    .nav-search span {
+        transition: none;
+    }
+}
+
+/* 27. PAGE COMMAND LABELS: lifted pill (all inner pages) */
+.about-page .page-heading .about-command,
+.skills-page .page-heading > .about-command,
+.projects-page .page-heading > .about-command,
+.contact-page .page-heading > .about-command,
+.status-page .page-heading > .about-command {
+    margin-top: 6px;
+    margin-bottom: 30px;
+    box-shadow: rgba(255, 255, 255, 0.05) 0px 1px 0px inset, rgba(0, 0, 0, 0.35) 0px 16px 22px -10px, rgba(99, 234, 211, 0.12) 0px 0px 0px 1px;
+}
+
+:root[data-theme="light"] .about-page .page-heading .about-command,
+:root[data-theme="light"] .skills-page .page-heading > .about-command,
+:root[data-theme="light"] .projects-page .page-heading > .about-command,
+:root[data-theme="light"] .contact-page .page-heading > .about-command,
+:root[data-theme="light"] .status-page .page-heading > .about-command {
+    box-shadow: rgba(255, 255, 255, 0.9) 0px 1px 0px inset, rgba(8, 124, 107, 0.3) 0px 16px 22px -10px;
+}
+
+/* 28. PAGE COMMAND LABELS: 3D motion (floats, shadow breathes, tilts on hover) */
+@media (prefers-reduced-motion: no-preference) {
+    .about-page .page-heading .about-command,
+    .skills-page .page-heading > .about-command,
+    .projects-page .page-heading > .about-command,
+    .contact-page .page-heading > .about-command,
+    .status-page .page-heading > .about-command {
+        transform-style: preserve-3d;
+        transition: transform 0.35s cubic-bezier(0.2, 0.7, 0.2, 1), box-shadow 0.35s;
+        animation: label-float 4.2s ease-in-out infinite;
+    }
+
+    .about-page .page-heading .about-command:hover,
+    .skills-page .page-heading > .about-command:hover,
+    .projects-page .page-heading > .about-command:hover,
+    .contact-page .page-heading > .about-command:hover,
+    .status-page .page-heading > .about-command:hover {
+        animation: none;
+        transform: perspective(600px) rotateX(12deg) rotateY(-8deg) translateY(-4px);
+        box-shadow: rgba(255, 255, 255, 0.05) 0px 1px 0px inset, rgba(0, 0, 0, 0.45) 0px 26px 30px -12px;
+    }
+
+    .about-page .page-heading .about-command::before,
+    .skills-page .page-heading > .about-command::before,
+    .projects-page .page-heading > .about-command::before,
+    .contact-page .page-heading > .about-command::before,
+    .status-page .page-heading > .about-command::before {
+        animation: label-dot 2.4s ease-in-out infinite;
+    }
+}
+
+@keyframes label-float {
+    0%, 100% { transform: perspective(600px) translateY(0) rotateX(0deg); }
+    50% { transform: perspective(600px) translateY(-5px) rotateX(4deg); }
+}
+
+@keyframes label-dot {
+    0%, 100% { box-shadow: rgba(99, 234, 211, 0.3) 0px 0px 6px; }
+    50% { box-shadow: rgba(99, 234, 211, 0.8) 0px 0px 14px; }
+}

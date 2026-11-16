@@ -13,6 +13,7 @@ My personal portfolio, presenting my background, skills and projects in software
 - A working terminal on the home page: type `help` to see the commands.
 - An education diagram on the About page, with a path that draws itself as you scroll.
 - A Projects page with illustrated cards, category filters and a preview window for each project.
+- A search window on every page: press Ctrl+K (Cmd+K on a Mac) or `/` to find a page, a project or a skill area, switch theme or language, or copy the email address.
 - Animations: content arrives blurred and settles in, cards lean towards the mouse with a light that follows it, sections tip up as they scroll into view, and the theme switch spreads in a circle. All of them stop for visitors who prefer reduced motion.
 - Scroll reveals, a typing effect and support for reduced-motion preferences.
 - A contact form connected to FormSubmit.
@@ -62,6 +63,7 @@ My-Portfolio/
 ├── projects.js         # Project filters and previews (Projects and home pages)
 ├── contact.js          # Copy-email button and feedback mode (Contact page)
 ├── tilt.js             # Cards that lean towards the mouse
+├── search.js           # Search window (Ctrl+K); its list of pages, projects and actions is at the top of the file
 ├── theme-init.js       # Applies the saved theme before the page renders
 ├── theme.js            # Light and dark theme controls
 ├── translations.js     # French text for every page

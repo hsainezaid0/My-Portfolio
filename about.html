@@ -23,12 +23,13 @@
     <link rel="preload" href="assets/fonts/JetBrainsMono-Variable.woff2" as="font" type="font/woff2" crossorigin />
     <script src="theme-init.js?v=controls-1"></script>
     <script src="theme.js?v=merge-3" defer></script>
-    <link rel="stylesheet" href="style.css?v=merge-4" />
-    <link rel="stylesheet" href="features.css?v=merge-7" />
+    <link rel="stylesheet" href="style.css?v=merge-6" />
+    <link rel="stylesheet" href="features.css?v=merge-11" />
     <script src="script.js?v=merge-4" defer></script>
+    <script src="search.js?v=merge-2" defer></script>
     <script src="tilt.js?v=merge-2" defer></script>
     <script src="journey.js?v=merge-2" defer></script>
-    <script src="translations.js?v=merge-4" defer></script>
+    <script src="translations.js?v=merge-5" defer></script>
     <script src="language.js?v=controls-1" defer></script>
     <link rel="icon" type="image/svg+xml" href="favicon.svg?v=zh-3" />
 </head>
@@ -40,12 +41,13 @@
         <nav aria-label="Main navigation">
             <a href="index.html">Home</a>
             <a href="about.html" aria-current="page">About</a>
-            <a href="skills.html">Skills</a>
+            <button class="nav-search" type="button" aria-label="Search the site"><span><svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" aria-hidden="true"><circle cx="11" cy="11" r="7"/><path d="m20 20-3.8-3.8"/></svg></span></button><a href="skills.html">Skills</a>
             <a href="projects.html">Projects</a>
             <a href="contact.html">Contact</a>
         </nav>
         <div class="theme-toolbar" role="toolbar" aria-label="Appearance">
             <div class="appearance-controls">
+            <button class="search-open" type="button" aria-label="Search the site" aria-keyshortcuts="Control+K"><svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><circle cx="11" cy="11" r="7"/><path d="m20 20-3.8-3.8"/></svg><span class="search-label">Search</span><kbd>Ctrl K</kbd></button>
             <button class="language-toggle" type="button" aria-label="Passer le site en français" lang="fr"><span class="language-option" data-language="en" aria-hidden="true">EN</span><span class="language-option" data-language="fr" aria-hidden="true">FR</span></button>
             <div class="theme-picker">
                 <button class="theme-toggle" type="button" aria-label="Switch to light mode" aria-pressed="false"><span class="theme-icon" aria-hidden="true">&#9728;</span></button>
@@ -70,48 +72,27 @@
             </p>
         </div>
         <div class="content-grid">
-            <section class="panel">
-                <p class="panel-label">01 / INTRODUCTION</p>
-                <h2>Hello, I'm Zaid.</h2>
-                <p>
-                    I am a computer science student at EMSI, currently on
-                    exchange at EPITECH International Campus.
-                </p>
-                <p>
-                    I am interested in software development and
-                    cybersecurity. I enjoy understanding how programs work,
-                    solving problems and turning ideas into projects.
-                </p>
-                <p class="code-note">
-                    // Curiosity is where everything starts.
-                </p>
-            </section>
-            
-            <aside class="terminal">
-                <div class="terminal-header">
-                    <div class="terminal-dots" aria-hidden="true">
-                        <span class="dot red"></span>
-                        <span class="dot yellow"></span>
-                        <span class="dot"></span>
-                    </div>
-                    <span>zaid@portfolio: ~</span>
-                </div>
-                <div class="terminal-content">
-                    <p><span class="prompt">$</span> cat goals.py</p>
-                    <pre><code><span class="variable">goals</span> = [
-    <span class="string">"Build useful software"</span>,
-    <span class="string">"Understand security"</span>,
-    <span class="string">"Learn through practice"</span>,
-    <span class="string">"Keep improving"</span>
-]
-
-<span class="variable">mindset</span> = <span class="string">"Try. Debug. Repeat."</span></code></pre>
+            <section class="panel intro-term">
+                <div class="term-bar"><i></i><i></i><i></i><span>about.md</span><b>ONLINE</b></div>
+                <div class="term-body">
+                    <p class="term-cmd">$ cat about.md <span>// 01 / introduction</span></p>
+                    <h2>Hello, I'm Zaid.</h2>
                     <p>
-                        <span class="prompt">$</span>
-                        <span class="cursor" aria-hidden="true">▌</span>
+                        I am a computer science student at EMSI, currently on
+                        exchange at EPITECH International Campus.
+                    </p>
+                    <p>
+                        I am interested in software development and
+                        cybersecurity. I enjoy understanding how programs work,
+                        solving problems and turning ideas into projects.
+                    </p>
+                    <div class="term-tags"><span>EMSI</span><span>EPITECH</span><span>cybersecurity</span></div>
+                    <div class="term-status"><b>status</b> = "curious, still learning"</div>
+                    <p class="code-note">
+                        // Curiosity is where everything starts.
                     </p>
                 </div>
-            </aside>
+            </section>
         </div>
         <section class="panel section-space journey-section" aria-labelledby="education-title">
             <p class="panel-label">02 / EDUCATION</p>
@@ -168,17 +149,19 @@
             </div>
         </section>
         <section class="panel section-space">
-            <p class="panel-label">03 / BEYOND SCHOOL PROJECTS</p>
+            <p class="exp-cmd">$ ls experiences/ // <span>03 / BEYOND SCHOOL PROJECTS</span></p>
             <h2>Other experiences</h2>
-            <div class="experience-grid">
-                <article class="small-card">
+            <div class="exp-list">
+                <article class="exp-file">
+                    <p class="exp-file-name">independent-learning.log</p>
                     <h3>Independent learning</h3>
                     <p>
                         Exploring programming and cybersecurity through
                         practice and personal research.
                     </p>
                 </article>
-                <article class="small-card">
+                <article class="exp-file exp-file-alt">
+                    <p class="exp-file-name">studying-abroad.log</p>
                     <h3>Studying abroad</h3>
                     <p>
                         Adapting to a different learning environment between
@@ -187,12 +170,15 @@
                 </article>
             </div>
         </section>
-        <section class="panel section-space">
-            <h2>My CV</h2>
-            <p class="muted">
-                Explore my background, education and skills in my online CV.
-            </p>
-            <a class="text-link" href="https://hsainezaid0.github.io/CV---RESUME/" target="_blank"
+        <section class="panel section-space cv-row">
+            <div>
+                <p class="cv-cmd">$ open cv.pdf</p>
+                <h2>My CV</h2>
+                <p class="muted">
+                    Explore my background, education and skills in my online CV.
+                </p>
+            </div>
+            <a class="cv-btn" href="https://hsainezaid0.github.io/CV---RESUME/" target="_blank"
                 rel="noopener noreferrer">View my CV →</a>
         </section>
         <footer id="footer-preview" class="page-footer portfolio-footer">
