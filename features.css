@@ -1903,3 +1903,114 @@ html:has(.project-preview[open]) {
 /* About: CV block text aligned left */
 .about-page .cv-row > div { text-align: left; }
 .about-page .cv-row h2, .about-page .cv-row p, .about-page .cv-row .cv-cmd { text-align: left; margin-left: 0; margin-right: 0; }
+
+/* Skills: learning log and next steps as terminal output (approved mock N3) */
+.term-log {
+    background-color: #0f1729;
+    background-image: linear-gradient(rgba(99, 234, 211, 0.045) 1px, transparent 1px), linear-gradient(90deg, rgba(99, 234, 211, 0.045) 1px, transparent 1px);
+    background-size: 28px 28px;
+    border: 1px solid rgba(99, 234, 211, 0.28);
+    box-shadow: 0 0 50px rgba(99, 234, 211, 0.12);
+}
+.term-out {
+    font: 15px/1.8 var(--font-mono);
+    color: #a6b4cc;
+    background: rgba(8, 13, 27, 0.7);
+    border: 1px solid #26334d;
+    border-radius: 10px;
+    padding: 18px 22px;
+    margin-top: 20px;
+}
+.term-entry { margin-bottom: 18px; }
+.term-entry:last-child { margin-bottom: 0; }
+.term-entry p { margin: 0; font-family: Inter, sans-serif; font-size: 16px; line-height: 1.6; color: #a6b4cc; }
+.term-entry p:first-child { font-family: var(--font-mono); font-size: 15px; }
+.term-tag { color: #b0a0ff; }
+.term-title { color: #edf3ff; font-weight: 600; }
+.term-bar { color: #32f5a2; margin-left: 8px; }
+.term-line { margin: 0 0 6px; }
+.term-line:last-child { margin-bottom: 0; }
+.term-ok { color: #32f5a2; }
+.term-todo { color: #63ead3; }
+.term-next { color: #63ead3; text-shadow: 0 0 10px rgba(99, 234, 211, 0.4); }
+
+/* Skills: terminal log layout fix (left aligned, progress on its own line) */
+.term-log, .term-log h2, .term-log .exp-cmd { text-align: left; }
+.term-entry p.term-head { font-family: var(--font-mono); font-size: 15px; margin: 0 0 6px; }
+.term-entry p.term-progress { font-family: var(--font-mono); font-size: 15px; margin: 0 0 8px; color: #32f5a2; }
+.term-bar { color: #32f5a2; margin-left: 0; letter-spacing: 0; }
+.term-pct { color: #63ead3; margin-left: 12px; }
+.term-entry p:not(.term-head):not(.term-progress) { text-align: left; }
+
+/* Skills: light point before each step */
+.term-dot { display: inline-block; width: 8px; height: 8px; border-radius: 50%; background: #63ead3; box-shadow: 0 0 10px rgba(99, 234, 211, 0.8); margin-right: 10px; vertical-align: middle; position: relative; top: -1px; }
+
+/* Skills: progress bars that fill from empty to full, across the whole line */
+.term-track {
+    position: relative;
+    display: inline-block;
+    width: min(320px, 70%);
+    height: 14px;
+    vertical-align: middle;
+    background: #08101f;
+    border: 1px solid #26334d;
+    border-radius: 4px;
+    overflow: hidden;
+    box-shadow: inset 0 0 8px rgba(0, 0, 0, 0.6);
+}
+.term-track::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: repeating-linear-gradient(90deg, transparent 0 calc(10% - 2px), #08101f calc(10% - 2px) 10%);
+    pointer-events: none;
+}
+.term-fill {
+    position: absolute;
+    left: 0;
+    top: 0;
+    bottom: 0;
+    width: 100%;
+    background: linear-gradient(90deg, #32f5a2, #63ead3);
+    box-shadow: 0 0 14px rgba(50, 245, 162, 0.7);
+}
+@media (prefers-reduced-motion: no-preference) {
+    .term-fill { transform-origin: left center; animation: term-fill-grow 1.8s cubic-bezier(0.22, 0.8, 0.3, 1) both; }
+    .term-entry:nth-child(1) .term-fill { animation-delay: 0.2s; }
+    .term-entry:nth-child(2) .term-fill { animation-delay: 0.7s; }
+    .term-entry:nth-child(3) .term-fill { animation-delay: 1.2s; }
+    .term-line .term-fill { animation: none; }
+}
+@keyframes term-fill-grow {
+    from { transform: scaleX(0); }
+    to { transform: scaleX(1); }
+}
+
+/* Skills: aligned checkboxes, the X pops in when a goal is done */
+.term-box { display: inline-block; width: 3ch; margin-right: 12px; text-align: center; font-family: var(--font-mono); white-space: pre; }
+.term-box::before { content: "["; color: #63ead3; }
+.term-box::after { content: "]"; color: #63ead3; }
+.term-box.term-done::before, .term-box.term-done::after { color: #32f5a2; }
+.term-mark { display: inline-block; color: #32f5a2; font-weight: 600; }
+.term-done .term-mark { text-shadow: 0 0 10px rgba(50, 245, 162, 0.7); }
+@media (prefers-reduced-motion: no-preference) {
+    .term-done .term-mark { animation: term-x-pop 0.6s cubic-bezier(0.3, 1.6, 0.5, 1) both; }
+    .term-line:nth-child(1) .term-mark { animation-delay: 0.4s; }
+    .term-line:nth-child(2) .term-mark { animation-delay: 1s; }
+}
+@keyframes term-x-pop {
+    0% { transform: scale(0) rotate(-45deg); opacity: 0; }
+    100% { transform: scale(1) rotate(0deg); opacity: 1; }
+}
+
+/* Skills: the three goal lines type in from left to right */
+@media (prefers-reduced-motion: no-preference) {
+    .term-log .term-line { animation: term-line-reveal 1.1s steps(28, end) both; }
+    .term-log .term-line:nth-child(1) { animation-delay: 0.1s; }
+    .term-log .term-line:nth-child(2) { animation-delay: 0.9s; }
+    .term-log .term-line:nth-child(3) { animation-delay: 1.7s; }
+}
+@keyframes term-line-reveal {
+    from { clip-path: inset(0 100% 0 0); }
+    to { clip-path: inset(0 0 0 0); }
+}
