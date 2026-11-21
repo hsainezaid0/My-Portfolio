@@ -33,7 +33,8 @@
         ['Snort intrusion detection', 'Détection d’intrusion Snort'],
         ['Smart parking (Arduino)', 'Parking intelligent (Arduino)'],
         ['EMSI hackathon app', 'Appli du hackathon EMSI'],
-        ['Discord bot', 'Bot Discord']
+        ['Discord bot', 'Bot Discord'],
+        ['HireLoop job board', 'Job board HireLoop']
     ];
     const skills = [
         ['Programming', 'Programmation', 'C, Python, SQL'],
@@ -196,8 +197,9 @@
         log.replaceChildren();
         // The first command and its file are part of the page: hide them too.
         screen.querySelectorAll(':scope > p:first-child, :scope > pre').forEach(element => { element.hidden = true; });
-        screen.style.maxHeight = screen.offsetHeight + 'px';
-        screen.style.minHeight = screen.offsetHeight + 'px';
+        // Start from the top of the screen, then re-measure it for the cleared content.
+        fit();
+        screen.scrollTop = 0;
     }
 
     function execute(raw) {
@@ -213,7 +215,9 @@
             : error(say(`command not found: ${name}. Type help to see what's available.`,
                 `commande introuvable : ${name}. Tapez help pour voir la liste.`));
         if (result && result.text) print(result.text, result.error ? 'error' : 'output');
-        screen.scrollTop = screen.scrollHeight;
+        // Let the screen grow with its output, so no line is cut off at the top.
+        screen.style.maxHeight = 'none';
+        screen.scrollTop = 0;
     }
 
     // Tab: completes the command name, or the argument of open / cat / lang / theme.

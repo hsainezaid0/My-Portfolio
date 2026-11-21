@@ -435,5 +435,13 @@ window.portfolioFrench = {
   "Training modules": "Modules de formation",
   "Coursework from my cybersecurity training, including APT Microsoft Safety and Upgrading.": "Modules de ma formation en cybersécurité, dont APT Microsoft Safety et Upgrading.",
   "Search": "Rechercher",
-  "Search the site": "Rechercher sur le site"
+  "Search the site": "Rechercher sur le site",
+  "04 / RATING": "04 / NOTE",
+  "HireLoop job board": "Job board HireLoop",
+  "A full-stack job board where every listing shows its salary up front.": "Un job board full-stack où chaque offre affiche son salaire dès le départ.",
+  "Live": "En ligne",
+  "Python / SQLite / JavaScript / REST API": "Python / SQLite / JavaScript / API REST",
+  "Illustration: job cards with salary ranges": "Illustration : cartes d'offres avec fourchettes de salaire",
+  "Make job searching more transparent by showing the salary range, contract type and remote policy on every offer.": "Rendre la recherche d'emploi plus transparente en affichant la fourchette de salaire, le type de contrat et la politique de télétravail sur chaque offre.",
+  "A REST API in pure Python (standard library only), a SQLite database with automatic migrations, a vanilla JavaScript single-page app in French and English, and security with hashed passwords (PBKDF2), role-based access and rate limiting. Deployed on Render.": "Une API REST en Python pur (bibliothèque standard uniquement), une base SQLite avec migrations automatiques, une application JavaScript monopage en français et en anglais, et de la sécurité avec mots de passe hachés (PBKDF2), contrôle d'accès par rôle et limitation de débit. Déployé sur Render."
 };
