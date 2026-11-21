@@ -2112,3 +2112,34 @@ html:has(.project-preview[open]) {
 :root[data-theme="light"] .term-track::after { background: repeating-linear-gradient(90deg, transparent 0 calc(10% - 2px), #ffffff calc(10% - 2px) 10%); }
 :root[data-theme="light"] .term-fill { background: linear-gradient(90deg, #0b7a66, #1fa98c); box-shadow: none; }
 :root[data-theme="light"] .term-entry p.term-progress { color: #0a7d55; }
+
+/* LIGHT MODE, option A "soft cards": white cards, soft shadow, stronger contrast */
+:root[data-theme="light"] .service-card,
+:root[data-theme="light"] section.skill-group,
+:root[data-theme="light"] .journey-card {
+    background: #ffffff;
+    border: 1px solid #c9d4e3;
+    box-shadow: 0 6px 18px rgba(20, 40, 70, 0.08);
+}
+:root[data-theme="light"] .exp-cmd { color: #0a6e5b; }
+:root[data-theme="light"] .exp-cmd span { color: #5b4bc4; }
+:root[data-theme="light"] .filter-count { background: #d9f5ee; color: #0a6e5b; }
+:root[data-theme="light"] .project-filters button[aria-pressed="true"] .filter-count { background: #0a6e5b; color: #ffffff; }
+:root[data-theme="light"] .tile-status.is-progress { background: #fff3d1; color: #7a4d00; border-color: #e0b44a; }
+
+/* PREVIEW LINKS (project dialogs) */
+.preview-links { margin: 18px 0 0; display: flex; flex-wrap: wrap; gap: 10px; }
+.preview-link {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    padding: 10px 16px;
+    border-radius: 999px;
+    border: 1px solid #0b7a66;
+    color: #0b7a66;
+    font: 600 14px var(--font-mono);
+    text-decoration: none;
+}
+.preview-link:hover { background: #0b7a66; color: #ffffff; }
+:root:not([data-theme="light"]) .preview-link { color: #63ead3; border-color: #63ead3; }
+:root:not([data-theme="light"]) .preview-link:hover { background: #63ead3; color: #0a1020; }

@@ -27,10 +27,10 @@
     <link rel="stylesheet" href="style.css?v=merge-6" />
         <link rel="stylesheet" href="features.css?v=merge-20" />
     <script src="script.js?v=merge-4" defer></script>
-    <script src="search.js?v=hireloop-1" defer></script>
+    <script src="search.js?v=game-2" defer></script>
     <script src="tilt.js?v=merge-2" defer></script>
     <script src="projects.js?v=merge-1" defer></script>
-    <script src="translations.js?v=merge-6" defer></script>
+    <script src="translations.js?v=merge-8" defer></script>
     <script src="language.js?v=controls-1" defer></script>
     <link rel="icon" type="image/svg+xml" href="favicon.svg?v=zh-3" />
     </head>
@@ -75,11 +75,11 @@
             <section class="projects-section" aria-labelledby="selected-work-title">
                 <h2 id="selected-work-title" class="visually-hidden">Selected work</h2>
                 <div class="project-filters" role="group" aria-label="Filter projects">
-                    <button type="button" data-filter="all" aria-pressed="true">All <span class="filter-count">6</span></button>
+                    <button type="button" data-filter="all" aria-pressed="true">All <span class="filter-count">7</span></button>
                     <button type="button" data-filter="security" aria-pressed="false">Security <span class="filter-count">1</span></button>
                     <button type="button" data-filter="web" aria-pressed="false">Web <span class="filter-count">2</span></button>
                     <button type="button" data-filter="embedded" aria-pressed="false">Embedded <span class="filter-count">1</span></button>
-                    <button type="button" data-filter="apps" aria-pressed="false">Apps <span class="filter-count">2</span></button>
+                    <button type="button" data-filter="apps" aria-pressed="false">Apps <span class="filter-count">3</span></button>
                 </div>
                 <ul class="projects-grid">
                 <li class="project-tile" id="snort" data-category="security">
@@ -142,7 +142,6 @@
                         <div class="tile-cover">
                             <img src="assets/projects/portfolio.svg" alt="Illustration: a browser window showing a portfolio" width="800" height="500" loading="lazy" />
                             <span class="tile-badge">Web</span>
-                            <span class="tile-badge tile-status is-progress">In progress</span>
                         </div>
                         <div class="tile-body">
                             <h3>This portfolio</h3>
@@ -161,7 +160,6 @@
                             <div class="tile-cover">
                             <img src="assets/projects/portfolio.svg" alt="Illustration: a browser window showing a portfolio" width="800" height="500" />
                             <span class="tile-badge">Web</span>
-                            <span class="tile-badge tile-status is-progress">In progress</span>
                         </div>
                             <button class="preview-close" type="button" aria-label="Close preview">
                                 <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M6 6l12 12M18 6L6 18" /></svg>
@@ -386,6 +384,56 @@
                                     <div>
                                         <dt>What I worked on</dt>
                                         <dd>A REST API in pure Python (standard library only), a SQLite database with automatic migrations, a vanilla JavaScript single-page app in French and English, and security with hashed passwords (PBKDF2), role-based access and rate limiting. Deployed on Render.</dd>
+                                    </div>
+                            </dl>
+                            <p class="preview-links">
+                                <a class="button" href="https://github.com/hsainezaid0/Job-Board-" target="_blank" rel="noopener">View the code on GitHub <span aria-hidden="true">↗</span></a>
+                                <a class="button" href="https://job-board-1-m97c.onrender.com/" target="_blank" rel="noopener">View the live site <span aria-hidden="true">↗</span></a>
+                            </p>
+                        </div>
+                    </dialog>
+                </li>
+                <li class="project-tile" id="game-2d" data-category="apps">
+                    <article>
+                        <div class="tile-cover">
+                            <img src="assets/projects/game2d.svg" alt="Illustration: a 2D platformer level with a player and coins" width="800" height="500" loading="lazy" />
+                            <span class="tile-badge">Apps</span>
+                            <span class="tile-badge tile-status is-progress">In progress</span>
+                        </div>
+                        <div class="tile-body">
+                            <h3>2D game in Java</h3>
+                            <p>A 2D game built in Java, currently in progress.</p>
+                            <ul class="tile-tags" aria-label="Technologies used">
+                                <li>Java</li>
+                                <li>Game development</li>
+                                <li>2D</li>
+                            </ul>
+                            <button class="tile-open" type="button" aria-haspopup="dialog">Open preview <span aria-hidden="true">↗</span></button>
+                        </div>
+                    </article>
+                    <dialog class="project-preview" aria-labelledby="preview-game-2d">
+                        <div class="preview-top">
+                            <div class="tile-cover">
+                            <img src="assets/projects/game2d.svg" alt="Illustration: a 2D platformer level with a player and coins" width="800" height="500" />
+                            <span class="tile-badge">Apps</span>
+                            <span class="tile-badge tile-status is-progress">In progress</span>
+                        </div>
+                            <button class="preview-close" type="button" aria-label="Close preview">
+                                <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M6 6l12 12M18 6L6 18" /></svg>
+                            </button>
+                        </div>
+                        <div class="preview-body">
+                            <p class="preview-stack">Java / Game development / 2D</p>
+                            <h3 id="preview-game-2d">2D game in Java</h3>
+                            <p class="preview-summary">A 2D game built in Java, currently in progress.</p>
+                            <dl class="preview-details">
+                                    <div>
+                                        <dt>Objective</dt>
+                                        <dd>Build a playable 2D game in Java, from the game loop and the controls to the levels.</dd>
+                                    </div>
+                                    <div>
+                                        <dt>Status</dt>
+                                        <dd>In progress. I'm still building it and will add more details as it grows.</dd>
                                     </div>
                             </dl>
                         </div>

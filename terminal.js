@@ -34,7 +34,8 @@
         ['Smart parking (Arduino)', 'Parking intelligent (Arduino)'],
         ['EMSI hackathon app', 'Appli du hackathon EMSI'],
         ['Discord bot', 'Bot Discord'],
-        ['HireLoop job board', 'Job board HireLoop']
+        ['HireLoop job board', 'Job board HireLoop'],
+        ['2D game in Java (in progress)', 'Jeu 2D en Java (en cours)']
     ];
     const skills = [
         ['Programming', 'Programmation', 'C, Python, SQL'],

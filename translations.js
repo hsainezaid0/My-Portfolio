@@ -443,5 +443,14 @@ window.portfolioFrench = {
   "Python / SQLite / JavaScript / REST API": "Python / SQLite / JavaScript / API REST",
   "Illustration: job cards with salary ranges": "Illustration : cartes d'offres avec fourchettes de salaire",
   "Make job searching more transparent by showing the salary range, contract type and remote policy on every offer.": "Rendre la recherche d'emploi plus transparente en affichant la fourchette de salaire, le type de contrat et la politique de télétravail sur chaque offre.",
-  "A REST API in pure Python (standard library only), a SQLite database with automatic migrations, a vanilla JavaScript single-page app in French and English, and security with hashed passwords (PBKDF2), role-based access and rate limiting. Deployed on Render.": "Une API REST en Python pur (bibliothèque standard uniquement), une base SQLite avec migrations automatiques, une application JavaScript monopage en français et en anglais, et de la sécurité avec mots de passe hachés (PBKDF2), contrôle d'accès par rôle et limitation de débit. Déployé sur Render."
+  "A REST API in pure Python (standard library only), a SQLite database with automatic migrations, a vanilla JavaScript single-page app in French and English, and security with hashed passwords (PBKDF2), role-based access and rate limiting. Deployed on Render.": "Une API REST en Python pur (bibliothèque standard uniquement), une base SQLite avec migrations automatiques, une application JavaScript monopage en français et en anglais, et de la sécurité avec mots de passe hachés (PBKDF2), contrôle d'accès par rôle et limitation de débit. Déployé sur Render.",
+  "2D game in Java": "Jeu 2D en Java",
+  "A 2D game built in Java, currently in progress.": "Un jeu 2D réalisé en Java, actuellement en cours.",
+  "Illustration: a 2D platformer level with a player and coins": "Illustration : un niveau de plateforme 2D avec un joueur et des pièces",
+  "Java / Game development / 2D": "Java / Développement de jeux / 2D",
+  "Build a playable 2D game in Java, from the game loop and the controls to the levels.": "Réaliser un jeu 2D jouable en Java, de la boucle de jeu et des contrôles jusqu'aux niveaux.",
+  "In progress. I'm still building it and will add more details as it grows.": "En cours. Je continue de le développer et j'ajouterai des détails au fil de l'avancement.",
+  "Game development": "Développement de jeux",
+  "View the live site": "Voir le site en ligne",
+  "View the code on GitHub": "Voir le code sur GitHub"
 };

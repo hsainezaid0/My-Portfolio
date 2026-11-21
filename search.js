@@ -37,6 +37,7 @@
         ['projects', 'EMSI hackathon: an everyday app', 'Hackathon EMSI : une appli du quotidien', 'app teamwork application', { go: 'projects.html#emsi-hackathon' }],
         ['projects', 'Discord bot', 'Bot Discord', 'automation python automatisation', { go: 'projects.html#discord-bot' }],
         ['projects', 'HireLoop job board', 'Job board HireLoop', 'python sql api job board emploi', { go: 'projects.html#hireloop' }],
+        ['projects', '2D game in Java', 'Jeu 2D en Java', 'java game jeu 2d', { go: 'projects.html#game-2d' }],
 
         ['skills', 'Programming', 'Programmation', 'c python typescript react code', { go: 'skills.html#group-programming' }],
         ['skills', 'Web', 'Web', 'html css responsive accessibility', { go: 'skills.html#group-web' }],

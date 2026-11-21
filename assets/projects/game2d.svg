@@ -1,0 +1,26 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 500" width="800" height="500" role="img" aria-label="Illustration: a 2D platformer level with a player and coins">
+  <rect width="800" height="500" fill="#0f1a2e"/>
+  <rect x="0" y="0" width="800" height="500" fill="none"/>
+  <g fill="#1b2b47">
+    <rect x="0" y="400" width="800" height="100"/>
+  </g>
+  <g fill="#2e4a7a">
+    <rect x="120" y="330" width="160" height="22" rx="4"/>
+    <rect x="360" y="270" width="150" height="22" rx="4"/>
+    <rect x="580" y="200" width="150" height="22" rx="4"/>
+  </g>
+  <g fill="#ffd23f" stroke="#c98f00" stroke-width="3">
+    <circle cx="200" cy="296" r="11"/>
+    <circle cx="435" cy="236" r="11"/>
+    <circle cx="655" cy="166" r="11"/>
+  </g>
+  <g>
+    <rect x="300" y="352" width="34" height="48" rx="6" fill="#63ead3"/>
+    <circle cx="317" cy="336" r="14" fill="#63ead3"/>
+    <rect x="312" y="344" width="10" height="6" fill="#0f1a2e"/>
+  </g>
+  <g font-family="monospace" font-size="18" fill="#8fa3c4">
+    <text x="40" y="60" fill="#63ead3">2D GAME · JAVA</text>
+    <text x="40" y="90">in progress</text>
+  </g>
+</svg>
